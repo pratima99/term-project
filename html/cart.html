@@ -1,47 +1,18 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - Handcrafted Musical Instruments</title>
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <link rel="stylesheet" type="text/css" href="../css/products.css">
+    <title>Checkout - Handcrafted Musical Instruments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/cart.css">
 </head>
-
 <body>
-<!-- <header>
-    <div class="container">
-        <div class="header-container">
-            <div class="header-left">
-                <div class="logo">
-                    <img src="images/logo.png" alt="Logo">
-                </div>
-            </div>
-            <div class="header-middle">
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="html/products.html">Products</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="header-right">
-                <div class="login-btn">
-                    <a href="html/login.html">Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header> -->
 <!--========== HEADER ==========-->
 <header class="l-header" id="header">
     <!-- =========Navbar====== -->
@@ -54,25 +25,21 @@
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="../index.html" class="nav__link">Home</a>
+                    <a href="../index.html" class="nav__link active-link">Home</a>
                 </li>
                 <li class="nav__item">
                     <a href="./about.html" class="nav__link">About</a>
                 </li>
                 <li class="nav__item">
-                    <a href="./products.html" class="nav__link active-link">Products</a>
+                    <a href="./products.html" class="nav__link">Products</a>
                 </li>
                 <li class="nav__item">
                     <a href="./contact.html" class="nav__link">Contact</a>
                 </li>
-                <li class="nav__item">
-                    <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
-                </li>
             </ul>
         </div>
-        <div class="login-btn" id="loginContainer">
-            <a href="./login.html" class="button" id="loginButton">Login</a>
-            <span id="welcomeMessage" style="display: none;"></span>
+        <div class="login-btn">
+            <a href="./html/login.html" class="button">Login</a>
         </div>
         <!-- Toggle Button for mobile view -->
         <div class="nav__toggle" id="nav-toggle">
@@ -80,24 +47,138 @@
         </div>
     </nav>
 </header>
-<main>
-    <!-- Page Header -->
-    <div id="page-header">
-        <div class="page-title">Product Details</div>
-    </div>
-    <div class="container main-content">
-        <div>
-            <button class="back-button" onclick="goBack()">Back to Products</button>
+
+<section class="section-content padding-y bg">
+<!--    <div class="container">-->
+        <div class="row">
+            <aside class="col-lg-9">
+                <div id="cart-card" class="card">
+                    <table id="cart-table" class="table table-borderless table-shopping-cart">
+                        <thead class="text-muted">
+                        <tr class="small text-uppercase">
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th width="150">Quantity</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                        <!--                         Cart items will be inserted here dynamically -->
+                        <!--                                                <tr class="cart-item">-->
+                        <!--                                                    <td>Demo Shoes</td>-->
+                        <!--                                                    <td>-->
+                        <!--                                                        <div class="input-group">-->
+                        <!--                                                            <div class="input-group-prepend">-->
+                        <!--                                                                <button class="btn btn-outline-secondary btn-sm decrease" type="button">- -->
+                        <!--                                                                </button>-->
+                        <!--                                                            </div>-->
+                        <!--                                                            <input type="text" class="form-control text-center quantity" value="1" readonly>-->
+                        <!--                                                            <div class="input-group-append">-->
+                        <!--                                                                <button class="btn btn-outline-secondary btn-sm increase" type="button">+-->
+                        <!--                                                                </button>-->
+                        <!--                                                            </div>-->
+                        <!--                                                        </div>-->
+                        <!--                                                    </td>-->
+                        <!--                                                    <td class="price" data-price="200.00">$200.00</td>-->
+                        <!--                                                    <td class="text-right">-->
+                        <!--                                                        <button class="btn btn-outline-primary btn-sm remove">Remove</button>-->
+                        <!--                                                    </td>-->
+                        <!--                                                </tr>-->
+                        <!--                                                <tr class="cart-item">-->
+                        <!--                                                    <td>Demo Shirt</td>-->
+                        <!--                                                    <td>-->
+                        <!--                                                        <div class="input-group">-->
+                        <!--                                                            <div class="input-group-prepend">-->
+                        <!--                                                                <button class="btn btn-outline-secondary btn-sm decrease" type="button">- -->
+                        <!--                                                                </button>-->
+                        <!--                                                            </div>-->
+                        <!--                                                            <input type="text" class="form-control text-center quantity" value="1" readonly>-->
+                        <!--                                                            <div class="input-group-append">-->
+                        <!--                                                                <button class="btn btn-outline-secondary btn-sm increase" type="button">+-->
+                        <!--                                                                </button>-->
+                        <!--                                                            </div>-->
+                        <!--                                                        </div>-->
+                        <!--                                                    </td>-->
+                        <!--                                                    <td class="price" data-price="50.00">$50.00</td>-->
+                        <!--                                                    <td class="text-right">-->
+                        <!--                                                        <button class="btn btn-outline-primary btn-sm remove">Remove</button>-->
+                        <!--                                                    </td>-->
+                        <!--                                                </tr>-->
+                        </tbody>
+                    </table>
+
+                    <div class="card-body border-top">
+                        <p class="icontext"><i class="icon text-success fa fa-truck"></i> Delivered in 2-3 days</p>
+                    </div>
+                </div>
+
+                <div id="empty-cart" class="empty-cart d-none">
+                    <h3>Your cart is currently empty</h3>
+                    <p>Looks like you haven't added anything to your cart yet.</p>
+                    <button class="btn btn-primary shopping">Continue Shopping</button>
+                </div>
+            </aside>
+            <aside class="col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <button data-toggle="modal" data-target="#address-modal" type="button"
+                                class="btn btn-sm btn-outline-primary float-right">Change <i
+                            class="fas fa-pencil-alt"></i></button>
+                        <div class="form-group">
+                            <p class="ml-2"><strong>Deliver To</strong></p>
+                        </div>
+                        <p id="current-address" class="mr-3">14 Tollgate Mews, Scarborough, Ontario</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div id="amount-info">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input id="coupon_code" type="text" class="form-control" name="code"
+                                           placeholder="Coupon code" value="">
+                                    <span class="input-group-append">
+                                        <button type="button" id="apply-coupon" class="btn btn-primary">Apply</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <form id="checkout-form" method="POST" action="/checkout">
+                                <dl class="dlist-align">
+                                    <dt>Total price:</dt>
+                                    <dd class="text-right" id="sub-total">$0.00</dd>
+                                </dl>
+                                <dl class="dlist-align">
+                                    <dt>Discount:</dt>
+                                    <dd class="text-right text-danger" id="discount">$0.00</dd>
+                                </dl>
+                                <dl class="dlist-align">
+                                    <dt>Delivery Charge:</dt>
+                                    <dd class="text-right" id="delivery-charge">$10.00</dd>
+                                </dl>
+                                <dl class="dlist-align">
+                                    <dt>Total:</dt>
+                                    <dd class="text-right text-dark"><strong id="total">$0.00</strong></dd>
+                                </dl>
+                                <hr>
+                                <input id="checkout-items" hidden name="items">
+                                <input id="checkout-coupon" hidden name="coupon">
+                                <p class="text-danger" id="min-amount-warning">
+                                    Checkout unavailable.<br>Minimum order amount is $20.00
+                                </p>
+                                <button type="submit" id="checkout-button" class="btn btn-primary btn-block">Checkout
+                                </button>
+                                <button class="btn btn-light btn-block shopping">Continue Shopping</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
-        <div class="product-details">
-            <img src="" alt="Product Image" id="productImage" class="product-image">
-            <h2 id="productName"></h2>
-            <p id="productPrice"></p>
-            <p id="productQuantity"></p>
-            <button id="addToCartButton">Add to Cart</button>
-        </div>
-    </div>
-</main>
+<!--    </div>-->
+</section>
+
 <!--========== FOOTER ==========-->
 <footer class="footer">
     <div class="section footer__container">
@@ -249,7 +330,7 @@
                                     <path d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738
                           c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388
                           C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191
-                          c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z"/>
+                          c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z" />
                                 </g>
                             </svg>
                         <span><a target="_blank"
@@ -263,7 +344,7 @@
                              style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden; color:white"
                              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M742.4 938.666667A657.92 657.92 0 0 1 85.333333 281.6 196.266667 196.266667 0 0 1 281.6 85.333333a168.106667 168.106667 0 0 1 32.853333 2.986667 161.706667 161.706667 0 0 1 30.72 7.68 42.666667 42.666667 0 0 1 27.733334 32l58.453333 256a42.666667 42.666667 0 0 1-11.093333 39.253333c-5.546667 5.973333-5.973333 6.4-58.453334 33.706667a422.826667 422.826667 0 0 0 207.786667 208.64c27.733333-52.906667 28.16-53.333333 34.133333-58.88a42.666667 42.666667 0 0 1 39.253334-11.093333l256 58.453333a42.666667 42.666667 0 0 1 30.72 27.733333 185.173333 185.173333 0 0 1 8.106666 31.146667 203.52 203.52 0 0 1 2.56 32.426667A196.266667 196.266667 0 0 1 742.4 938.666667z"/>
+                                d="M742.4 938.666667A657.92 657.92 0 0 1 85.333333 281.6 196.266667 196.266667 0 0 1 281.6 85.333333a168.106667 168.106667 0 0 1 32.853333 2.986667 161.706667 161.706667 0 0 1 30.72 7.68 42.666667 42.666667 0 0 1 27.733334 32l58.453333 256a42.666667 42.666667 0 0 1-11.093333 39.253333c-5.546667 5.973333-5.973333 6.4-58.453334 33.706667a422.826667 422.826667 0 0 0 207.786667 208.64c27.733333-52.906667 28.16-53.333333 34.133333-58.88a42.666667 42.666667 0 0 1 39.253334-11.093333l256 58.453333a42.666667 42.666667 0 0 1 30.72 27.733333 185.173333 185.173333 0 0 1 8.106666 31.146667 203.52 203.52 0 0 1 2.56 32.426667A196.266667 196.266667 0 0 1 742.4 938.666667z" />
                         </svg>
                         <a href="tel:4374324650" class="address_link">+1 437-432-4650</a>
                     </li>
@@ -272,7 +353,7 @@
                              xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
-                                fill-rule="evenodd"/>
+                                fill-rule="evenodd" />
                         </svg>
                         <a href="mailto:himalayan@gmail.com" class="address_link">musicalinstruments@gmail.com</a>
                     </li>
@@ -285,79 +366,213 @@
         </p>
     </div>
 </footer>
+
+<!-- Address Modal -->
+<div class="modal fade" id="address-modal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addressModalLabel">Change Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="address">New Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter new address">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="save-address">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script>
     $(document).ready(function () {
-        const product = JSON.parse(localStorage.getItem('selectedProduct'));
-        // console.log("Product", product)
-        if (!product) {
-            window.location.href = 'products.html';
-            return;
+        var discount = 0.00;
+        var deliveryCharge = 10.00;
+        var couponDiscount = 0;
+
+        var coupons = {
+            'SAVE10': 10.00,
+            'SAVE20': 20.00,
+            'SAVE30': 30.00
+        };
+
+        var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+
+        function renderCart() {
+            $('#cart-items').empty();
+            if (cartProducts.length > 0) {
+                cartProducts.forEach(function(product) {
+                    var productDetails = `
+                                <tr class="cart-item" data-id="${product.id}">
+                                    <td><img src="${product.image}" alt="product image" style="width: 50px; height: auto;"></td>
+                                    <td>${product.name}</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-secondary btn-sm decrease" type="button">-</button>
+                                            </div>
+                                            <input type="text" class="form-control text-center quantity" value="${product.cartQuantity}" readonly>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary btn-sm increase" type="button">+</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="price" data-price="${product.price}">${product.price}</td>
+                                    <td>
+                                        <button class="btn btn-outline-primary btn-sm remove">Remove</button>
+                                    </td>
+                                </tr>
+                            `;
+                    $('#cart-items').append(productDetails);
+                });
+            } else {
+                // If the cart is empty, show a message or hide the cart table
+                $('#cart-items').append('<tr><td colspan="5" class="text-center text-danger">Your cart is empty.</td></tr>');
+            }
         }
 
-        $('#productImage').attr('src', product.image);
-        $('#productName').text(product.name);
-        $('#productPrice').text(`Price: ${product.price}`);
-        $('#productQuantity').text(`Available Quantity: ${product.quantity}`);
-        $('#addToCartButton').attr('data-id', product.id);
-
-        $('#addToCartButton').click(function () {
-            if (product.quantity > 0) {
-                product.quantity -= 1;
-                $('#productQuantity').text(`Available Quantity: ${product.quantity}`);
-                localStorage.setItem('selectedProduct', JSON.stringify(product));
-
-                // if (!product.cartQuantity) {
-                //     product.cartQuantity = 1;
-                // } else {
-                //     product.cartQuantity += 1;
-                // }
-
-                // Add products to local storage
-                addProductToLocalStorage(product);
-                alert('Product added to cart!');
-            } else {
-                alert('Product is out of stock!');
-            }
-        });
-    });
-
-    function goBack() {
-        window.location.href = 'products.html';
-    }
-
-    function addProductToLocalStorage(product) {
-        // localStorage.removeItem('cartProducts');
-        let cartProducts = localStorage.getItem('cartProducts');
-
-        if (cartProducts) {
-            cartProducts = JSON.parse(cartProducts);
-
-            let productExists = false;
-
-            // Iterate over the cart products to check for existing product
-            cartProducts.forEach(function (value) {
-                if (value.id === product.id) {
-                    value.cartQuantity += 1;
-                    productExists = true;
-                }
+        function updatePrices() {
+            var totalPrice = 0;
+            $('.cart-item').each(function () {
+                var quantity = parseInt($(this).find('.quantity').val());
+                var price = parseFloat($(this).find('.price').data('price').replace("$", ""));
+                totalPrice += quantity * price;
             });
 
-            // If the product does not exist in the cart, add it
-            if (!productExists) {
-                product.cartQuantity = 1;
-                cartProducts.push(product);
+            var subTotal = totalPrice - discount - couponDiscount;
+            $('#sub-total').text('$' + subTotal.toFixed(2));
+            var total = subTotal + deliveryCharge;
+            $('#total').text('$' + total.toFixed(2));
+
+            if (total < 20) {
+                $('#checkout-button').prop('disabled', true);
+                $('#min-amount-warning').show();
+            } else {
+                $('#checkout-button').prop('disabled', false);
+                $('#min-amount-warning').hide();
             }
-        } else {
-            // Initialize cartProducts as an empty array and add the product
-            cartProducts = [];
-            product.cartQuantity = 1;
-            cartProducts.push(product);
         }
 
-        // Save the updated array back to local storage
-        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-    }
-</script>
-</body>
+        function updateLocalStorage() {
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        }
 
+        // Increase quantity
+        $(document).on('click', '.increase', function () {
+            var $row = $(this).closest('.cart-item');
+            var productId = $row.data('id');
+            var product = cartProducts.find(p => p.id === productId);
+            product.cartQuantity += 1;
+            $row.find('.quantity').val(product.cartQuantity);
+            updatePrices();
+            updateLocalStorage();
+        });
+
+        // Decrease quantity
+        $(document).on('click', '.decrease', function () {
+            var $row = $(this).closest('.cart-item');
+            var productId = $row.data('id');
+            var product = cartProducts.find(p => p.id === productId);
+            if (product.cartQuantity > 1) {
+                product.cartQuantity -= 1;
+                $row.find('.quantity').val(product.cartQuantity);
+                updatePrices();
+                updateLocalStorage();
+            }
+        });
+
+        // Remove item
+        $(document).on('click', '.remove', function () {
+            var $row = $(this).closest('.cart-item');
+            var productId = $row.data('id');
+            cartProducts = cartProducts.filter(p => p.id !== productId);
+            $row.remove();
+            updatePrices();
+            updateLocalStorage();
+            if (cartProducts.length === 0) {
+                $('#cart-items').append('<tr><td colspan="5" class="text-center">Your cart is empty.</td></tr>');
+            }
+        });
+
+        // Apply coupon
+        $('#apply-coupon').click(function () {
+            var couponCode = $('#coupon_code').val();
+            if (coupons[couponCode]) {
+                couponDiscount = coupons[couponCode];
+                $('#discount').text('-$' + couponDiscount.toFixed(2));
+                swal({
+                    title: "Coupon Applied!",
+                    text: "Your coupon has been successfully applied.",
+                    icon: "success",
+                    button: "OK",
+                }).then(() => {
+                    updatePrices();
+                });
+            } else {
+                swal({
+                    title: "Invalid Coupon!",
+                    text: "The coupon code you entered is invalid.",
+                    icon: "error",
+                    button: "OK",
+                });
+            }
+        });
+
+        // Change address
+        $('#address-modal').on('show.bs.modal', function () {
+            $('#address').val($('#current-address').text().trim());
+        });
+
+        $('#save-address').click(function () {
+            var newAddress = $('#address').val();
+            if (newAddress) {
+                $('#current-address').text(newAddress);
+                $('#address-modal').modal('hide');
+            }
+        });
+
+        // Continue shopping
+        $('.shopping').click(function () {
+            window.location.href = '../index.html';
+        });
+
+        // Handle form submission with SweetAlert
+        $('#checkout-form').submit(function (event) {
+            event.preventDefault();
+
+            swal({
+                title: "Order Placed!",
+                text: "Your order has been successfully placed.",
+                icon: "success",
+                button: "OK",
+            }).then(() => {
+                localStorage.removeItem('cartProducts');
+                $('.cart-item').remove();
+                updatePrices();
+                $('#cart-items').append('<tr><td colspan="5" class="text-center">Your cart is empty.</td></tr>');
+            });
+        });
+
+        renderCart();
+        updatePrices();
+    });
+</script>
+
+</body>
 </html>
+
+
+
