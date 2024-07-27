@@ -14,35 +14,10 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <!-- <header>
-        <div class="container">
-            <div class="header-container">
-                <div class="header-left">
-                    <div class="logo">
-                        <img src="images/logo.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="header-middle">
-                    <nav>
-                        <ul>
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a href="html/products.html">Products</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="header-right">
-                    <div class="login-btn">
-                        <a href="html/login.html">Login</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header> -->
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <!-- =========Navbar====== -->
@@ -65,6 +40,9 @@
                     </li>
                     <li class="nav__item">
                         <a href="./contact.html" class="nav__link">Contact</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
                 </ul>
             </div>
@@ -284,9 +262,137 @@
         $(document).ready(function () {
 
             const products = [
-                { id: 1, name: 'Handcrafted Guitar', category: 'String Instruments', price: '$500', quantity: 10, image: '../img/guitar.jpg' },
-                { id: 2, name: 'Handcrafted Violin', category: 'String Instruments', price: '$300', quantity: 5, image: '../img/violin.jpg' },
-                { id: 3, name: 'Handcrafted Drum', category: 'Percussion Instruments', price: '$200', quantity: 8, image: '../img/drum.jpg' }
+                // { id: 1, name: 'Handcrafted Guitar', category: 'String Instruments', price: '$500', quantity: 10, image: '../img/guitar.jpg' },
+                // { id: 2, name: 'Handcrafted Violin', category: 'String Instruments', price: '$300', quantity: 5, image: '../img/violin.jpg' },
+                // { id: 3, name: 'Handcrafted Drum', category: 'Percussion Instruments', price: '$200', quantity: 8, image: '../img/drum.jpg' },
+
+
+                {
+                    id: 1,
+                    name: 'Handcrafted Guitar',
+                    category: 'String Instruments',
+                    image: '../img/guitar.jpg',
+                    vendor: {
+                        name: 'Vendor 1',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$500',
+                    quantity: 10,
+                    sound: '../audio/guitar.mp3'
+                },
+                {
+                    id: 2,
+                    name: 'Handcrafted Violin',
+                    category: 'String Instruments',
+                    image: '../img/violin.jpg',
+                    vendor: {
+                        name: 'Vendor 2',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$300',
+                    quantity: 5,
+                    sound: '../audio/violin.mp3'
+                },
+                {
+                    id: 3,
+                    name: 'Handcrafted Drum',
+                    category: 'Percussion Instruments',
+                    image: '../img/drum.jpg',
+                    vendor: {
+                        name: 'Vendor 3',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$200',
+                    quantity: 8,
+                    sound: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+                },
+                {
+                    id: 4,
+                    name: 'Bagpipe',
+                    category: 'Wind Instruments',
+                    image: '../img/bagpipes.png',
+                    vendor: {
+                        name: 'Vendor 1',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$600',
+                    quantity: 9,
+                    sound: '../audio/bagpipes.mp3'
+                },
+                {
+                    id: 5,
+                    name: 'Clarinet',
+                    category: 'Wind Instruments',
+                    image: '../img/clarinet.png',
+                    vendor: {
+                        name: 'Vendor 4',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$900',
+                    quantity: 17,
+                    sound: '../audio/clarinet.mp3'
+                },
+                {
+                    id: 6,
+                    name: 'Flute',
+                    category: 'Wind Instruments',
+                    image: '../img/flute.jpg',
+                    vendor: {
+                        name: 'Vendor 2',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$500',
+                    quantity: 15,
+                    sound: '../audio/flute.mp3'
+                },
+                {
+                    id: 7,
+                    name: 'Saxophone',
+                    category: 'Wind Instruments',
+                    image: '../img/saxophone.jpg',
+                    vendor: {
+                        name: 'Vendor 7',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$1100',
+                    quantity: 11,
+                    sound: '../audio/saxophone.mp3'
+                },
+                {
+                    id: 8,
+                    name: 'Handcrafted Harp',
+                    category: 'String Instruments',
+                    image: '../img/harp.png',
+                    vendor: {
+                        name: 'Vendor 7',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$300',
+                    quantity: 5,
+                    sound: '../audio/harp.mp3'
+                },
+                {
+                    id: 9,
+                    name: 'Ukulele',
+                    category: 'String Instruments',
+                    image: '../img/ukulele.png',
+                    vendor: {
+                        name: 'Vendor 8',
+                        verified: true
+                    },
+                    short_description: 'Short description of the product.',
+                    price: '$300',
+                    quantity: 5,
+                    sound: '../audio/ukulele.mp3'
+                },
             ];
 
             const categories = [...new Set(products.map(p => p.category))];
