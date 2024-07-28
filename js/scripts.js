@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sample products data
     const products = [
-        {id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, image: "img/guitar.jpg"},
-        {id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, image: "img/violin.jpg"},
-        {id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, image: "img/flute.jpg"},
-        {id: 4, name: "Drum", category: "Percussion Instruments", price: 200, quantity: 8, image: "img/drum.jpg"},
-        {id: 5, name: "Piano", category: "Keyboard Instruments", price: 1000, quantity: 3, image: "img/piano.jpg"},
-        {id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, image: "img/saxophone.jpg"}
+        { id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, image: "img/guitar.jpg" },
+        { id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, image: "img/violin.jpg" },
+        { id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, image: "img/flute.jpg" },
+        { id: 4, name: "Harp", category: "String Instruments", price: 200, quantity: 8, image: "img/harp.png" },
+        { id: 5, name: "Bagpipes", category: "Wind Instruments", price: 1000, quantity: 3, image: "img/bagpipes.png" },
+        { id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, image: "img/saxophone.jpg" }
     ];
 
     // Generate product slider
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             if (name && email && password) {
-                localStorage.setItem("user", JSON.stringify({name, email, password}));
+                localStorage.setItem("user", JSON.stringify({ name, email, password }));
                 document.getElementById("message").innerText = "Registration successful!";
                 window.location.href = "login.html";
             } else {
@@ -142,14 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    // Display logged in user's name
-    // if (document.getElementById("welcomeMessage")) {
-    //     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    //     if (loggedInUser) {
-    //         document.getElementById("welcomeMessage").innerText = `Welcome, ${loggedInUser.name}`;
-    //     }
-    // }
 
     // Check for logged-in user and update the login button
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));

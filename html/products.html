@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Handcrafted Musical Instruments</title>
+    <title>Products - The Musical Shop</title>
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="../css/products.css">
     <!-- Include jQuery -->
@@ -14,7 +14,9 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -37,9 +39,6 @@
                     </li>
                     <li class="nav__item">
                         <a href="./products.html" class="nav__link active-link">Products</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="./contact.html" class="nav__link">Contact</a>
                     </li>
                     <li class="nav__item">
                         <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -262,11 +261,6 @@
         $(document).ready(function () {
 
             const products = [
-                // { id: 1, name: 'Handcrafted Guitar', category: 'String Instruments', price: '$500', quantity: 10, image: '../img/guitar.jpg' },
-                // { id: 2, name: 'Handcrafted Violin', category: 'String Instruments', price: '$300', quantity: 5, image: '../img/violin.jpg' },
-                // { id: 3, name: 'Handcrafted Drum', category: 'Percussion Instruments', price: '$200', quantity: 8, image: '../img/drum.jpg' },
-
-
                 {
                     id: 1,
                     name: 'Handcrafted Guitar',
@@ -297,20 +291,6 @@
                 },
                 {
                     id: 3,
-                    name: 'Handcrafted Drum',
-                    category: 'Percussion Instruments',
-                    image: '../img/drum.jpg',
-                    vendor: {
-                        name: 'Vendor 3',
-                        verified: true
-                    },
-                    short_description: 'Short description of the product.',
-                    price: '$200',
-                    quantity: 8,
-                    sound: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
-                },
-                {
-                    id: 4,
                     name: 'Bagpipe',
                     category: 'Wind Instruments',
                     image: '../img/bagpipes.png',
@@ -324,7 +304,7 @@
                     sound: '../audio/bagpipes.mp3'
                 },
                 {
-                    id: 5,
+                    id: 4,
                     name: 'Clarinet',
                     category: 'Wind Instruments',
                     image: '../img/clarinet.png',
@@ -338,7 +318,7 @@
                     sound: '../audio/clarinet.mp3'
                 },
                 {
-                    id: 6,
+                    id: 5,
                     name: 'Flute',
                     category: 'Wind Instruments',
                     image: '../img/flute.jpg',
@@ -352,7 +332,7 @@
                     sound: '../audio/flute.mp3'
                 },
                 {
-                    id: 7,
+                    id: 6,
                     name: 'Saxophone',
                     category: 'Wind Instruments',
                     image: '../img/saxophone.jpg',
@@ -366,7 +346,7 @@
                     sound: '../audio/saxophone.mp3'
                 },
                 {
-                    id: 8,
+                    id: 7,
                     name: 'Handcrafted Harp',
                     category: 'String Instruments',
                     image: '../img/harp.png',
@@ -380,7 +360,7 @@
                     sound: '../audio/harp.mp3'
                 },
                 {
-                    id: 9,
+                    id: 8,
                     name: 'Ukulele',
                     category: 'String Instruments',
                     image: '../img/ukulele.png',
