@@ -1,16 +1,46 @@
 .main-form-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 5rem;
 }
 
-.form-section {
+.form-column {
     background: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 2.5rem;
-    box-shadow: 1px 2px 3px #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-header h1 {
+    margin: 0;
+    color: #333;
+}
+
+.form-header span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-header a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.form-header a:hover {
+    text-decoration: underline;
 }
 
 form {
@@ -20,6 +50,8 @@ form {
 
 label {
     margin-top: 10px;
+    text-align: left;
+    color: #555;
 }
 
 input {
@@ -27,10 +59,22 @@ input {
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: border 0.3s ease;
 }
 
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
 
 #message {
     margin-top: 10px;
     color: red;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .form-column {
+        max-width: 100%;
+    }
 }

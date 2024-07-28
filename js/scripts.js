@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h3>${product.name}</h3>
                 <p>Price: $${product.price}</p>
                 <p>Quantity: ${product.quantity}</p>
-                <button onclick="viewProduct(${product.id})">View Details</button>
+                <button onclick="viewProduct(${product.id})" class="button product-button">View Details</button>
             `;
             productSlider.appendChild(productDiv);
         });
@@ -43,59 +43,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', function (e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredProducts = products.filter(product =>
-                product.name.toLowerCase().includes(searchTerm)
-            );
-            displayProducts(filteredProducts);
-        });
-    }
+    // const searchInput = document.getElementById('searchInput');
+    // if (searchInput) {
+    //     searchInput.addEventListener('input', function (e) {
+    //         const searchTerm = e.target.value.toLowerCase();
+    //         const filteredProducts = products.filter(product =>
+    //             product.name.toLowerCase().includes(searchTerm)
+    //         );
+    //         displayProducts(filteredProducts);
+    //     });
+    // }
 
     // Display products on the page
-    function displayProducts(products) {
-        const productList = document.getElementById('productList');
-        if (productList) {
-            productList.innerHTML = '';
-            products.forEach(product => {
-                const productDiv = document.createElement("div");
-                productDiv.classList.add("product");
-                productDiv.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <h3>${product.name}</h3>
-                    <p>Price: $${product.price}</p>
-                    <p>Quantity: ${product.quantity}</p>
-                    <button onclick="viewProduct(${product.id})">View Details</button>
-                `;
-                productList.appendChild(productDiv);
-            });
-        }
-    }
+    // function displayProducts(products) {
+    //     const productList = document.getElementById('productList');
+    //     if (productList) {
+    //         productList.innerHTML = '';
+    //         products.forEach(product => {
+    //             const productDiv = document.createElement("div");
+    //             productDiv.classList.add("product");
+    //             productDiv.innerHTML = `
+    //                 <img src="${product.image}" alt="${product.name}">
+    //                 <h3>${product.name}</h3>
+    //                 <p>Price: $${product.price}</p>
+    //                 <p>Quantity: ${product.quantity}</p>
+    //                 <button onclick="viewProduct(${product.id})">View Details</button>
+    //             `;
+    //             productList.appendChild(productDiv);
+    //         });
+    //     }
+    // }
 
-    // View product details
-    window.viewProduct = function (id) {
-        const product = products.find(p => p.id === id);
-        localStorage.setItem("selectedProduct", JSON.stringify(product));
-        window.location.href = "html/product-details.html";
-    };
+    // // View product details
+    // window.viewProduct = function (id) {
+    //     const product = products.find(p => p.id === id);
+    //     localStorage.setItem("selectedProduct", JSON.stringify(product));
+    //     window.location.href = "html/product-details.html";
+    // };
 
-    // Display product details
-    if (document.getElementById("productDetails")) {
-        const product = JSON.parse(localStorage.getItem("selectedProduct"));
-        if (product) {
-            const productDetails = document.getElementById("productDetails");
-            productDetails.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h2>${product.name}</h2>
-                <p>Price: $${product.price}</p>
-                <p>Quantity: ${product.quantity}</p>
-                <p>Category: ${product.category}</p>
-                <button id="addToCartButton">Add to Cart</button>
-            `;
-        }
-    }
+    // // Display product details
+    // if (document.getElementById("productDetails")) {
+    //     const product = JSON.parse(localStorage.getItem("selectedProduct"));
+    //     if (product) {
+    //         const productDetails = document.getElementById("productDetails");
+    //         productDetails.innerHTML = `
+    //             <img src="${product.image}" alt="${product.name}">
+    //             <h2>${product.name}</h2>
+    //             <p>Price: $${product.price}</p>
+    //             <p>Quantity: ${product.quantity}</p>
+    //             <p>Category: ${product.category}</p>
+    //             <button id="addToCartButton">Add to Cart</button>
+    //         `;
+    //     }
+    // }
 
     // Add to cart functionality
     // if (document.getElementById("addToCartButton")) {

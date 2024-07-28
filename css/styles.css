@@ -731,7 +731,7 @@ footer {
     margin-bottom: 15%;
 }
 
-.home_button:hover{
+.home_button:hover {
     color: #ffffff !important;
 }
 
@@ -945,4 +945,12 @@ footer {
 
 .nav__link .fa-cart-shopping {
     font-size: 1.5rem;
+}
+
+.product-button {
+    padding: 0.5rem 0.75rem;
+}
+
+.home-explore-btn {
+    text-align: center;
 }
