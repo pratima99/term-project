@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sample products data
     const products = [
-        { id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, image: "img/guitar.jpg" },
-        { id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, image: "img/violin.jpg" },
-        { id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, image: "img/flute.jpg" },
-        { id: 4, name: "Harp", category: "String Instruments", price: 200, quantity: 8, image: "img/harp.png" },
-        { id: 5, name: "Bagpipes", category: "Wind Instruments", price: 1000, quantity: 3, image: "img/bagpipes.png" },
-        { id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, image: "img/saxophone.jpg" }
+        {id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, image: "img/guitar.jpg"},
+        {id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, image: "img/violin.jpg"},
+        {id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, image: "img/flute.jpg"},
+        {id: 4, name: "Harp", category: "String Instruments", price: 200, quantity: 8, image: "img/harp.png"},
+        {id: 5, name: "Bagpipes", category: "Wind Instruments", price: 1000, quantity: 3, image: "img/bagpipes.png"},
+        {id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, image: "img/saxophone.jpg"}
     ];
 
     // Generate product slider
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             if (name && email && password) {
-                localStorage.setItem("user", JSON.stringify({ name, email, password }));
+                localStorage.setItem("user", JSON.stringify({name, email, password}));
                 document.getElementById("message").innerText = "Registration successful!";
                 window.location.href = "login.html";
             } else {
@@ -148,22 +148,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginContainer = document.getElementById("loginContainer");
     const loginButton = document.getElementById("loginButton");
     const welcomeMessage = document.getElementById("welcomeMessage");
-
+    const cartIcon = document.getElementById("cart-icon");
     if (loginButton) {
         if (loggedInUser) {
             loginButton.style.display = "none";
             welcomeMessage.style.display = "inline";
             welcomeMessage.innerText = `Welcome, ${loggedInUser.name}!`;
+            document.getElementById("logoutButton").style.display = "inline";
+            cartIcon.style.display = "inline";
         } else {
             loginButton.style.display = "inline";
             welcomeMessage.style.display = "none";
+            cartIcon.style.display = "none";
         }
-    } else {
-        // Logout functionality
-        if (document.getElementById("logoutButton")) {
+    }
+    // Logout functionality
+    if (document.getElementById("logoutButton")) {
+        if (document.getElementById("logoutButton").style.display !== 'none') {
             document.getElementById("logoutButton").addEventListener("click", function () {
                 localStorage.removeItem("loggedInUser");
-                window.location.href = "../index.html";
+                localStorage.removeItem("selectedProduct");
+                localStorage.removeItem("selectedProductQuantity");
+                localStorage.removeItem("cartProducts");
+                var pathname = window.location.pathname;
+                if (pathname === "/term-project/index.html") {
+                    window.location.href = pathname;
+                } else {
+                    window.location.href = "../index.html";
+                }
+                document.getElementById("logoutButton").style.display = 'none';
             });
         }
     }

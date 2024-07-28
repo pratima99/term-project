@@ -707,6 +707,7 @@ footer {
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -728,6 +729,10 @@ footer {
 
 .home_button {
     margin-bottom: 15%;
+}
+
+.home_button:hover{
+    color: #ffffff !important;
 }
 
 .home__title {
