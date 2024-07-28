@@ -7,14 +7,108 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Sample products data
+    // const products = [
+    //     {id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, img: "img/guitar.jpg",image: '../img/guitar.jpg',
+    //         vendor: { name: 'Vendor 1', verified: true} },
+    //     {id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, img: "img/violin.jpg"},
+    //     {id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, img: "img/flute.jpg"},
+    //     {id: 4, name: "Harp", category: "String Instruments", price: 200, quantity: 8, img: "img/harp.png"},
+    //     {id: 5, name: "Bagpipes", category: "Wind Instruments", price: 1000, quantity: 3, img: "img/bagpipes.png"},
+    //     {id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, img: "img/saxophone.jpg"}
+    // ];
+
     const products = [
-        {id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, image: "img/guitar.jpg"},
-        {id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, image: "img/violin.jpg"},
-        {id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, image: "img/flute.jpg"},
-        {id: 4, name: "Harp", category: "String Instruments", price: 200, quantity: 8, image: "img/harp.png"},
-        {id: 5, name: "Bagpipes", category: "Wind Instruments", price: 1000, quantity: 3, image: "img/bagpipes.png"},
-        {id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, image: "img/saxophone.jpg"}
-    ];
+        {
+            id: 1,
+            name: 'Handcrafted Guitar',
+            category: 'String Instruments',
+            img: 'img/guitar.jpg',
+            image: '../img/guitar.jpg',
+            vendor: {
+                name: 'Vendor 1',
+                verified: true
+            },
+            short_description: 'Short description of the product.',
+            price: '$500',
+            quantity: 10,
+            sound: '../audio/guitar.mp3'
+        },
+        {
+            id: 2,
+            name: 'Handcrafted Violin',
+            category: 'String Instruments',
+            img: 'img/violin.jpg',
+            image: '../img/violin.jpg',
+            vendor: {
+                name: 'Vendor 2',
+                verified: true
+            },
+            short_description: 'Short description of the product.',
+            price: '$500',
+            quantity: 10,
+            sound: '../audio/violin.mp3'
+        },
+        {
+            id: 3,
+            name: 'Bagpipes',
+            category: 'Wind Instruments',
+            img: 'img/bagpipes.png',
+            image: '../img/bagpipes.png',
+            vendor: {
+                name: 'Vendor 1',
+                verified: true
+            },
+            short_description: 'Short description of the product.',
+            price: '$600',
+            quantity: 9,
+            sound: '../audio/bagpipes.mp3'
+        },
+        {
+            id: 4,
+            name: 'Clarinet',
+            category: 'Wind Instruments',
+            img: 'img/clarinet.png',
+            image: '../img/clarinet.png',
+            vendor: {
+                name: 'Vendor 4',
+                verified: true
+            },
+            short_description: 'Short description of the product.',
+            price: '$900',
+            quantity: 17,
+            sound: '../audio/clarinet.mp3'
+        },
+        {
+            id: 5,
+            name: 'Flute',
+            category: 'Wind Instruments',
+            img: 'img/flute.jpg',
+            image: '../img/flute.jpg',
+            vendor: {
+                name: 'Vendor 2',
+                verified: true
+            },
+            short_description: 'Short description of the product.',
+            price: '$500',
+            quantity: 15,
+            sound: '../audio/flute.mp3'
+        },
+        {
+            id: 6,
+            name: 'Saxophone',
+            category: 'Wind Instruments',
+            img: 'img/saxophone.jpg',
+            image: '../img/saxophone.jpg',
+            vendor: {
+                name: 'Vendor 7',
+                verified: true
+            },
+            short_description: 'Short description of the product.',
+            price: '$1100',
+            quantity: 11,
+            sound: '../audio/saxophone.mp3'
+        },
+    ]
 
     // Generate product slider
     const productSlider = document.querySelector('.product-slider');
@@ -23,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const productDiv = document.createElement("div");
             productDiv.classList.add("home-product");
             productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${product.img}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>Price: $${product.price}</p>
                 <p>Quantity: ${product.quantity}</p>
@@ -74,14 +168,14 @@ document.addEventListener("DOMContentLoaded", function () {
     //     }
     // }
 
-    // // View product details
-    // window.viewProduct = function (id) {
-    //     const product = products.find(p => p.id === id);
-    //     localStorage.setItem("selectedProduct", JSON.stringify(product));
-    //     window.location.href = "html/product-details.html";
-    // };
+    // View product details
+    window.viewProduct = function (id) {
+        const product = products.find(p => p.id === id);
+        localStorage.setItem("selectedProduct", JSON.stringify(product));
+        window.location.href = "html/product-details.html";
+    };
 
-    // // Display product details
+    // Display product details
     // if (document.getElementById("productDetails")) {
     //     const product = JSON.parse(localStorage.getItem("selectedProduct"));
     //     if (product) {
@@ -189,5 +283,17 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+    const showMenu = (toggleId, navId) => {
+        const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId)
 
+        // Validate that variables exist
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                // We add the show-menu class to the div tag with the nav__menu class
+                nav.classList.toggle('show-menu')
+            })
+        }
+    }
+    showMenu('nav-toggle', 'nav-menu')
 });
