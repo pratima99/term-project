@@ -40,7 +40,7 @@
                     <li class="nav__item">
                         <a href="./products.html" class="nav__link active-link">Products</a>
                     </li>
-                    <li class="nav__item">
+                    <li class="nav__item" style="display:none;" id="cart-icon">
                         <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
                 </ul>
@@ -49,6 +49,9 @@
                 <a href="./login.html" class="button" id="loginButton">Login</a>
                 <span id="welcomeMessage" style="display: none;"></span>
             </div>
+
+            <button class="button" id="logoutButton" style="display: none">Logout</button>
+
             <!-- Toggle Button for mobile view -->
             <div class="nav__toggle" id="nav-toggle">
                 <span>&#9776;</span>
@@ -194,8 +197,8 @@
                         <li><a href="#service" class="footer__text">Pricing</a></li>
                         <li><a href="#service" class="footer__text">Quality Product</a></li>
                         <!-- <li>
-                            <a href="#service" class="footer__text">Reserve your spot</a>
-                        </li> -->
+                        <a href="#service" class="footer__text">Reserve your spot</a>
+                    </li> -->
                     </ul>
                 </div>
                 <div class="footer__content">
@@ -285,8 +288,8 @@
                         verified: true
                     },
                     short_description: 'Short description of the product.',
-                    price: '$300',
-                    quantity: 5,
+                    price: '$500',
+                    quantity: 10,
                     sound: '../audio/violin.mp3'
                 },
                 {
@@ -374,6 +377,18 @@
                     sound: '../audio/ukulele.mp3'
                 },
             ];
+
+            if (localStorage.getItem('cartProducts') !== null) {
+                let cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+
+                cartProducts.forEach(cartProduct => {
+                    products.forEach(product => {
+                        if (cartProduct.id === product.id) {
+                            product.quantity = cartProduct.quantity;
+                        }
+                    });
+                });
+            }
 
             const categories = [...new Set(products.map(p => p.category))];
 

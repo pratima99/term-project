@@ -35,20 +35,22 @@
                     <li class="nav__item">
                         <a href="./html/products.html" class="nav__link">Products</a>
                     </li>
-                    <li class="nav__item">
+                    <li class="nav__item" style="display:none;" id="cart-icon">
                         <a href="./html/cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
                 </ul>
             </div>
 
             <!-- <div class="login-btn">
-                    <a href="./html/login.html" class="button">Login</a>
-                </div> -->
+                <a href="./html/login.html" class="button">Login</a>
+            </div> -->
 
             <div class="login-btn" id="loginContainer">
                 <a href="./html/login.html" class="button" id="loginButton">Login</a>
                 <span id="welcomeMessage" style="display: none;"></span>
             </div>
+
+            <button class="button" id="logoutButton" style="display: none">Logout</button>
 
             <!-- Toggle Button for mobile view -->
             <div class="nav__toggle" id="nav-toggle">
@@ -82,7 +84,7 @@
                     <div class="about__data">
                         <span class="section-subtitle about__initial">About us</span>
                         <h2 class="section-title about__initial">
-                            Our Extensive Collection
+                            Our extensive collection
                         </h2>
                         <p class="about__description">
                             At Handcrafted Musical Instruments, we are dedicated to offering a wide selection of
@@ -132,6 +134,64 @@
             </section>
 
         </div>
+    </main>
+
+    <!--========== ABOUT ==========-->
+    <section class="about section" id="about">
+        <div class="about__container bd-grid">
+            <div class="about__data">
+                <span class="section-subtitle about__initial">About us</span>
+                <h2 class="section-title about__initial">
+                    Our Extensive Collection
+                </h2>
+                <p class="about__description">
+                    At Handcrafted Musical Instruments, we are dedicated to offering a wide selection of
+                    high-quality, handcrafted musical instruments to musicians and enthusiasts of all
+                    levels. Our online store features a curated collection of unique and artisanal
+                    instruments that are crafted with precision, passion, and care.
+                </p>
+                <!-- Button that links about us page -->
+                <div class="home-explore-btn">
+                    <a href="./html/products.html" class="button">Explore More</a>
+                </div>
+
+            </div>
+            <!-- About Image -->
+            <img src="./img/harp.png" alt="chowmin" class="about__img">
+        </div>
+    </section>
+
+    <!--========== FEATURED PRODUCTS ==========-->
+
+    <section id="featured-products" class="products-section">
+        <h2>Featured Products</h2>
+        <div class="product-slider">
+
+        </div>
+    </section>
+
+
+    <!--========== CONTACT US ==========-->
+    <section class="contact">
+        <div class="contact section" id="contact">
+            <div class="contact__container bd-grid">
+                <div class="contact__data">
+                    <span class="section-subtitle contact__initial">Let's talk</span>
+                    <h2 class="section-title contact__initial">Contact us</h2>
+                    <p class="contact__description">
+                        If you want to buy any products or have any inquiry, contact us and
+                        we will attend you quickly, with our 24/7 chat service.
+                    </p>
+                </div>
+                <!-- Contact Button -->
+                <div class="contact__button">
+                    <a href="./html/contact.html" class="button">Contact us now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
     </main>
 
     <!--========== FOOTER ==========-->
@@ -258,8 +318,8 @@
                         <li><a href="#service" class="footer__text">Pricing</a></li>
                         <li><a href="#service" class="footer__text">Quality Product</a></li>
                         <!-- <li>
-                                <a href="#service" class="footer__text">Reserve your spot</a>
-                            </li> -->
+                            <a href="#service" class="footer__text">Reserve your spot</a>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="footer__content">
@@ -322,12 +382,8 @@
         </div>
     </footer>
 </body>
-
-</html>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="js/scripts.js"></script>
-</body>
 
 </html>
