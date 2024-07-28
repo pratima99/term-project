@@ -925,3 +925,11 @@ footer {
     width: 80%;
     border-radius: 1em;
 }
+
+.product-button {
+    padding: 0.5rem 0.75rem;
+}
+
+.home-explore-btn {
+    text-align: center;
+}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xzoom/1.0.14/xzoom.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="../css/product-details.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 
 <body>
@@ -50,66 +51,77 @@
     </header>
 
     <main>
-        <div class="container main-content">
-            <div class="row no-gutters">
-                <aside class="col-sm-6 border-right">
-                    <section id="default" class="padding-top0">
-                        <div class="row justify-content-center">
-                            <div class="large-5 column">
-                                <div class="xzoom-container">
-                                    <img id="main-product-image" class="xzoom" height="400" width="400" src=""
-                                        xoriginal="" />
+        <!-- Page Header -->
+        <div id="page-header">
+            <div class="page-title">Product Details</div>
+        </div>
+        <div class="container">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <a href="../index.html">Home</a> &gt;
+                <a href="products.html">Products</a> &gt;
+                <span id="breadcrumbProductName"></span>
+            </div>
+            <div class="main-content">
+                <div class="row no-gutters">
+                    <aside class="col-sm-6 border-right">
+                        <section id="default" class="padding-top0">
+                            <div class="row justify-content-center">
+                                <div class="large-5 column">
+                                    <div class="xzoom-container">
+                                        <img id="main-product-image" class="xzoom" height="400" width="400" src=""
+                                            xoriginal="" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                </aside>
-                <main class="col-sm-6">
-                    <article class="content-body ml-4">
-                        <div id="product-category"></div>
-                        <h2 id="product-title"></h2>
-                        <span class="product_category text-muted">Sold By</span><br>
-                        <span class="text-primary" id="vendor-link"><b id="vendor-name"></b></span>
-                        <label class="text-success" id="vendor-verified"></label>
-                        <div id="product-rating"></div>
-                        <hr />
-                        <p id="product-description"></p>
-                        <div class="h3 mb-4" id="product-price"></div>
-                        <div class="audio-player">
-                            <audio controls>
-                                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                                    type="audio/mp3">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <p>Share:</p>
-                        <div class="a2a_kit a2a_kit_size_24 a2a_default_style mb-3">
-                            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-                            <a class="a2a_button_facebook"></a>
-                            <a class="a2a_button_twitter"></a>
-                            <a class="a2a_button_email"></a>
-                        </div>
-                        <form id="buy-form" method="POST" action="#">
-                            <input hidden name="product_id" id="product-id">
-                            <div class="form-row">
-                                <div class="col-sm-6 col-md-5">
-                                    <input id="quantity-input" name="quantity" class="form-control" type="number"
-                                        value="1" min="1" />
-                                </div>
-                                <div id="widget-wishlist-holder"></div>
+                        </section>
+                    </aside>
+                    <main class="col-sm-6">
+                        <article class="content-body ml-4">
+                            <div id="product-category"></div>
+                            <h2 id="product-title"></h2>
+                            <span class="product_category text-muted">Sold By</span><br>
+                            <span class="text-primary" id="vendor-link"><b id="vendor-name"></b></span>
+                            <label class="text-success" id="vendor-verified"></label>
+                            <div id="product-rating"></div>
+                            <hr />
+                            <p id="product-description"></p>
+                            <div class="h3 mb-4" id="product-price"></div>
+                            <div class="audio-player">
+                                <audio controls>
+                                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                                        type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-5 mt-2">
-                                    <button id="cart-button" type="button" class="btn btn-primary w-100">
-                                        <span class="text">Add to cart</span>
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
+                            <p>Share:</p>
+                            <div class="a2a_kit a2a_kit_size_24 a2a_default_style mb-3">
+                                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                                <a class="a2a_button_facebook"></a>
+                                <a class="a2a_button_twitter"></a>
+                                <a class="a2a_button_email"></a>
                             </div>
-                        </form>
-                        <div id="stock-status" class="mt-3"></div>
-                    </article>
-                </main>
+                            <form id="buy-form" method="POST" action="#">
+                                <input hidden name="product_id" id="product-id">
+                                <div class="form-row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <input id="quantity-input" name="quantity" class="form-control" type="number"
+                                            value="1" min="1" />
+                                    </div>
+                                    <div id="widget-wishlist-holder"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-5 mt-2">
+                                        <button id="cart-button" type="button" class="btn btn-primary w-100 button">
+                                            <span class="text">Add to cart</span>
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="stock-status" class="mt-3"></div>
+                        </article>
+                    </main>
+                </div>
             </div>
         </div>
     </main>
@@ -121,7 +133,7 @@
                 <div class="footer__content">
                     <a href="index.html">
                         <!-- Footer Logo -->
-                        <img id="footer-logo" src="img/flogo.png" alt="footer logo">
+                        <img id="footer-logo" src="../img/logo.jpg" alt="footer logo">
                     </a>
                     <span class="footer__description">Our online store features a curated collection of unique and
                         artisanal instruments that are crafted with precision, passion, and care.</span>
@@ -329,6 +341,7 @@
                 $('#product-price').html(`<var class="price h4">${product.price}</var>`);
                 $('#quantity-input').attr('max', product.quantity);
                 updateStockStatus(product.quantity);
+                $('#breadcrumbProductName').text(product.name);
 
                 if (product.sound) {
                     $('.audio-player audio').attr('src', product.sound);

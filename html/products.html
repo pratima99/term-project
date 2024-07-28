@@ -291,7 +291,7 @@
                 },
                 {
                     id: 3,
-                    name: 'Bagpipe',
+                    name: 'Bagpipes',
                     category: 'Wind Instruments',
                     image: '../img/bagpipes.png',
                     vendor: {
@@ -395,11 +395,11 @@
                         filteredProducts.forEach(product => {
                             $(`#${categoryId}`).append(`
                                 <div class="product">
-                                <img src="${product.image}" alt="${product.name}">
-                                <h3>${product.name}</h3>
-                                <p>Price: ${product.price}</p>
-                                <p>Available Quantity: ${product.quantity}</p>
-                                <button onclick="viewProduct(${product.id})" class="button">View Details</button>
+                                <img src="${product.image}" alt="${product.name}" class="product-image">
+                                <h3 class="product-title">${product.name}</h3>
+                                <p class="product-price">Price: ${product.price}</p>
+                                <p class="product-quantity">Available Quantity: ${product.quantity}</p>
+                                <button onclick="viewProduct(${product.id})" class="product-button button">View Details</button>
                                 </div>
                             `);
                         });
