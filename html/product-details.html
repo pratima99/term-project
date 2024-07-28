@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - The Musical Shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xzoom/1.0.14/xzoom.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="../css/product-details.css">
@@ -34,7 +36,10 @@
                     <a href="./products.html" class="nav__link">Products</a>
                 </li>
                 <li class="nav__item" style="display:none;" id="cart-icon">
-                    <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-count" class="badge badge-pill badge-danger position-absolute"
+                              style="display: none;">0</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -305,8 +310,12 @@
 </footer>
 
 <script src="../js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xzoom/1.0.14/xzoom.min.js"></script>
@@ -390,6 +399,31 @@
             localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
             localStorage.setItem('selectedProductQuantity', $('#quantity-input').val());
             localStorage.setItem('selectedProduct', JSON.stringify(product));
+
+            // Update the cart count
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            let cartProducts = localStorage.getItem('cartProducts') ? JSON.parse(localStorage.getItem('cartProducts')) : [];
+            let totalCount = cartProducts.reduce((total, product) => total + product.cartQuantity, 0);
+            localStorage.setItem('cartCount', totalCount); // Store the cart count in localStorage
+
+            if (totalCount > 0) {
+                $('#cart-count').text(totalCount).show();
+            } else {
+                $('#cart-count').hide();
+            }
+        }
+
+        // Function to load cart count from localStorage on other pages
+        function loadCartCount() {
+            let cartCount = localStorage.getItem('cartCount');
+            if (cartCount && cartCount > 0) {
+                $('#cart-count').text(cartCount).css('display', 'inline');
+            } else {
+                $('#cart-count').css('display', 'none');
+            }
         }
 
         $('#quantity-input').on('input', function () {
@@ -405,23 +439,28 @@
         });
 
         $('#cart-button').click(function () {
-            if (loggedUser == null) {
-                swal('Error', 'Please login to add the product to the cart!', 'error');
-            } else {
-                let selectedQuantity = parseInt($('#quantity-input').val());
-
-                if (selectedQuantity > 0 && selectedQuantity <= product.quantity) {
-                    addOrUpdateProductInCart(product, selectedQuantity);
-                    swal('Success', 'Product added to cart!', 'success');
+                if (loggedUser == null) {
+                    swal('Error', 'Please login to add the product to the cart!', 'error');
                 } else {
-                    swal('Error', 'Invalid quantity!', 'error');
+                    let selectedQuantity = parseInt($('#quantity-input').val());
+
+                    if (selectedQuantity > 0 && selectedQuantity <= product.quantity) {
+                        // Update the cart
+                        addOrUpdateProductInCart(product, selectedQuantity);
+                        swal('Success', 'Product added to cart!', 'success');
+                    } else {
+                        swal('Error', 'Invalid quantity!', 'error');
+                    }
                 }
             }
-        });
+        )
+        ;
 
         loadProductData();
         loadQuantityFromLocalStorage();
         initializeXzoom();
+        updateCartCount();
+        loadCartCount();
     });
 </script>
 <!--<script async src="https://static.addtoany.com/menu/page.js"></script>-->

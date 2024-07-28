@@ -36,7 +36,10 @@
                         <a href="./products.html" class="nav__link">Products</a>
                     </li>
                     <li class="nav__item" style="display:none;" id="cart-icon">
-                        <a href="./cart.html" class="nav__link active-link"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cart-count" class="badge badge-pill badge-danger position-absolute"
+                                  style="display: none;">0</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -377,36 +380,47 @@
 
             var cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
 
+            function updateCartCount() {
+                let totalCount = cartProducts.reduce((total, product) => total + product.cartQuantity, 0);
+                localStorage.setItem('cartCount', totalCount); // Store the cart count in localStorage
+                if (totalCount > 0) {
+                    $('#cart-count').text(totalCount).show();
+                } else {
+                    $('#cart-count').hide();
+                }
+            }
+
             function renderCart() {
                 $('#cart-items').empty();
                 if (cartProducts.length > 0) {
                     cartProducts.forEach(function (product) {
                         var productDetails = `
-                        <tr class="cart-item" data-id="${product.id}">
-                            <td><img src="${product.image}" alt="product image" style="width: 50px; height: auto;"></td>
-                            <td>${product.name}</td>
-                            <td>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary btn-sm decrease" type="button">-</button>
-                                    </div>
-                                    <input type="text" class="form-control text-center quantity" value="${product.cartQuantity}" readonly>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary btn-sm increase" type="button">+</button>
-                                    </div>
+                    <tr class="cart-item" data-id="${product.id}">
+                        <td><img src="${product.image}" alt="product image" style="width: 50px; height: auto;"></td>
+                        <td>${product.name}</td>
+                        <td>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary btn-sm decrease" type="button">-</button>
                                 </div>
-                            </td>
-                            <td class="price" data-price="${product.price}">${product.price}</td>
-                            <td>
-                                <button class="btn btn-outline-primary btn-sm remove">Remove</button>
-                            </td>
-                        </tr>
-                    `;
+                                <input type="text" class="form-control text-center quantity" value="${product.cartQuantity}" readonly>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary btn-sm increase" type="button">+</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price" data-price="${product.price}">${product.price}</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm remove">Remove</button>
+                        </td>
+                    </tr>
+                `;
                         $('#cart-items').append(productDetails);
                     });
                 } else {
                     $('#cart-items').append('<tr><td colspan="5" class="text-center text-danger">Your cart is empty.</td></tr>');
                 }
+                updateCartCount(); // Update cart count whenever the cart is rendered
             }
 
             function updatePrices() {
@@ -447,6 +461,7 @@
                     $row.find('.quantity').val(product.cartQuantity);
                     updatePrices();
                     updateLocalStorage();
+                    updateCartCount();
                 } else {
                     swal('Error', 'No more stock available!', 'error');
                 }
@@ -464,6 +479,7 @@
                     $row.find('.quantity').val(product.cartQuantity);
                     updatePrices();
                     updateLocalStorage();
+                    updateCartCount();
                 }
             });
 
@@ -475,6 +491,7 @@
                 $row.remove();
                 updatePrices();
                 updateLocalStorage();
+                updateCartCount();
                 if (cartProducts.length === 0) {
                     $('#cart-items').append('<tr><td colspan="5" class="text-center text-danger">Your cart is empty.</td></tr>');
                 }
@@ -533,9 +550,15 @@
                     button: "OK",
                 }).then(() => {
                     localStorage.removeItem('cartProducts');
+                    localStorage.removeItem('selectedProduct');
+                    localStorage.removeItem('selectedProductQuantity');
+                    localStorage.removeItem('cartCount');
                     $('.cart-item').remove();
+                    updateCartCount();
                     updatePrices();
                     $('#cart-items').append('<tr><td colspan="5" class="text-center">Your cart is empty.</td></tr>');
+                    updateCartCount(); // Reset cart count after checkout
+                    window.location.reload();
                 });
             });
 

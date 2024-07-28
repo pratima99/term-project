@@ -930,3 +930,19 @@ footer {
     width: 80%;
     border-radius: 1em;
 }
+/*cart label*/
+.position-absolute {
+    position: absolute;
+    top: -14px;
+    right: -6px;
+    background-color: red;
+    color: white;
+    padding: 3px 4px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.nav__link .fa-cart-shopping {
+    font-size: 1.5rem;
+}
