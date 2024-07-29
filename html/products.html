@@ -26,31 +26,36 @@
         <!-- =========Navbar====== -->
         <nav class="nav bd-container">
             <!-- ====== Logo of the website =======-->
-            <a href="../index.html" class="nav__logo">
-                <img id="logo-img" src="../img/logo.jpg" alt="logo">
+            <a href="index.html" class="nav__logo">
+                <img id="logo-img" src="img/logo.jpg" alt="logo">
             </a>
             <!-- Nav Items -->
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="../index.html" class="nav__link">Home</a>
+                        <a href="index.html" class="nav__link active-link">Home</a>
                     </li>
                     <li class="nav__item">
-                        <a href="./about.html" class="nav__link">About</a>
+                        <a href="./html/about.html" class="nav__link">About</a>
                     </li>
                     <li class="nav__item">
-                        <a href="./products.html" class="nav__link active-link">Products</a>
+                        <a href="./html/products.html" class="nav__link">Products</a>
                     </li>
                     <li class="nav__item" style="display:none;" id="cart-icon">
-                        <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
+                        <a href="./html/cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
                             <span id="cart-count" class="badge badge-pill badge-danger position-absolute"
                                 style="display: none;">0</span>
                         </a>
                     </li>
+                    <!-- Login Button for mobile view -->
+                    <li class="nav__item mobile-only">
+                        <a href="./html/login.html" class="button nav__link">Login</a>
+                    </li>
                 </ul>
             </div>
-            <div class="login-btn" id="loginContainer">
-                <a href="./login.html" class="button" id="loginButton">Login</a>
+
+            <div class="login-btn desktop-only" id="loginContainer">
+                <a href="./html/login.html" class="button" id="loginButton">Login</a>
                 <span id="welcomeMessage" style="display: none;"></span>
             </div>
 

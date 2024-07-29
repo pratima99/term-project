@@ -35,7 +35,7 @@
 }
 
 .form-header a {
-    color: #007BFF;
+    color: #cf6308;
     text-decoration: none;
 }
 
@@ -63,7 +63,7 @@ input {
 }
 
 input:focus {
-    border-color: #007BFF;
+    border-color: #cf6308;
     outline: none;
 }
 
