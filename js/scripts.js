@@ -228,11 +228,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.removeItem("selectedProductQuantity");
                 localStorage.removeItem("cartProducts");
                 localStorage.removeItem("cartCount");
+                // Get the current pathname
                 var pathname = window.location.pathname;
-                if (pathname === "/term-project/index.html") {
-                    window.location.href = pathname;
+
+                // Check if the current page is the index page
+                if (pathname.endsWith("/index.html") || pathname === "/index.html") {
+                    window.location.href = "index.html"; // Redirect to the index page
                 } else {
-                    window.location.href = "../index.html";
+                    window.location.href = "../index.html"; // Redirect to the parent directory's index page
                 }
                 document.getElementById("logoutButton").style.display = 'none';
             });
