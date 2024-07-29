@@ -12,10 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const products = [
         {
             id: 1,
-            name: 'Handcrafted Guitar',
+            name: 'Guitar',
             category: 'String Instruments',
-            img: 'img/guitar.jpg',
-            image: '../img/guitar.jpg',
+            img: 'https://live.staticflickr.com/65535/53889787385_9610efaaf2_n.jpg',
             vendor: {
                 name: 'Vendor 1',
                 verified: true
@@ -27,10 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             id: 2,
-            name: 'Handcrafted Violin',
+            name: 'Violin',
             category: 'String Instruments',
-            img: 'img/violin.jpg',
-            image: '../img/violin.jpg',
+            img: 'https://live.staticflickr.com/65535/53888452407_8ded19c9b9_n.jpg',
             vendor: {
                 name: 'Vendor 2',
                 verified: true
@@ -44,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             id: 3,
             name: 'Bagpipes',
             category: 'Wind Instruments',
-            img: 'img/bagpipes.png',
-            image: '../img/bagpipes.png',
+            img: 'https://live.staticflickr.com/65535/53889599928_d4bdcfdca8_n.jpg',
             vendor: {
                 name: 'Vendor 1',
                 verified: true
@@ -59,8 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             id: 4,
             name: 'Clarinet',
             category: 'Wind Instruments',
-            img: 'img/clarinet.png',
-            image: '../img/clarinet.png',
+            img: 'https://live.staticflickr.com/65535/53889363716_545fa760b6_n.jpg',
             vendor: {
                 name: 'Vendor 4',
                 verified: true
@@ -74,8 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             id: 5,
             name: 'Flute',
             category: 'Wind Instruments',
-            img: 'img/flute.jpg',
-            image: '../img/flute.jpg',
+            img: 'https://live.staticflickr.com/65535/53888452402_4e69d78ac4_n.jpg',
             vendor: {
                 name: 'Vendor 2',
                 verified: true
@@ -89,8 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             id: 6,
             name: 'Saxophone',
             category: 'Wind Instruments',
-            img: 'img/saxophone.jpg',
-            image: '../img/saxophone.jpg',
+            img: 'https://live.staticflickr.com/65535/53889599888_46f02cc28c_n.jpg',
             vendor: {
                 name: 'Vendor 7',
                 verified: true
