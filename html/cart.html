@@ -17,26 +17,32 @@
 <body>
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
-        <!-- =========Navbar====== -->
+        <!-- ========= Navbar ======= -->
         <nav class="nav bd-container">
-            <!-- ====== Logo of the website =======-->
+            <!-- ====== Logo of the website ======= -->
             <a href="../index.html" class="nav__logo">
                 <img id="logo-img" src="https://live.staticflickr.com/65535/53889787330_9be346b063_n.jpg" alt="logo">
             </a>
-            <!-- Nav Items -->
+            <!-- Navigation Menu -->
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
+                    <!-- Home link -->
                     <li class="nav__item">
                         <a href="../index.html" class="nav__link">Home</a>
                     </li>
+                    <!-- About link -->
                     <li class="nav__item">
                         <a href="./about.html" class="nav__link">About</a>
                     </li>
+                    <!-- Products link -->
                     <li class="nav__item">
                         <a href="./products.html" class="nav__link">Products</a>
                     </li>
+                    <!-- Cart icon (hidden by default) -->
                     <li class="nav__item" style="display:none;" id="cart-icon">
-                        <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
+                        <a href="./cart.html" class="nav__link">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <!-- Cart count badge (hidden by default) -->
                             <span id="cart-count" class="badge badge-pill badge-danger position-absolute"
                                 style="display: none;">0</span>
                         </a>
@@ -48,30 +54,38 @@
                 </ul>
             </div>
 
+            <!-- Login Button for desktop view -->
             <div class="login-btn desktop-only" id="loginContainer">
                 <a href="./login.html" class="button" id="loginButton">Login</a>
+                <!-- Welcome message (hidden by default) -->
                 <span id="welcomeMessage" style="display: none;"></span>
             </div>
 
+            <!-- Logout Button (hidden by default) -->
             <button class="button" id="logoutButton" style="display: none">Logout</button>
 
-            <!-- Toggle Button for mobile view -->
+            <!-- Toggle Button for mobile view (hamburger menu) -->
             <div class="nav__toggle" id="nav-toggle">
                 <span>&#9776;</span>
             </div>
         </nav>
     </header>
 
+    <!-- Loading Overlay (typically shown while page content is loading) -->
     <div class="loading-overlay" id="loading-overlay">
         <div class="spinner-border text-primary" role="status">
+            <!-- Spinner icon for loading indication -->
         </div>
     </div>
 
+    <!-- Main Content Section -->
     <section class="section-content padding-y bg">
         <div class="bd-container">
             <div class="row">
+                <!-- Cart Items Section -->
                 <aside class="col-lg-9">
                     <div id="cart-card" class="card">
+                        <!-- Cart Table -->
                         <table id="cart-table" class="table table-borderless table-shopping-cart">
                             <thead class="text-muted">
                                 <tr class="small text-uppercase">
@@ -83,26 +97,34 @@
                                 </tr>
                             </thead>
                             <tbody id="cart-items">
+                                <!-- Cart items will be dynamically added here -->
                             </tbody>
                         </table>
 
+                        <!-- Delivery Information -->
                         <div class="card-body border-top">
                             <p class="icontext"><i class="icon text-success fa fa-truck"></i> Delivered in 2-3 days</p>
                         </div>
                     </div>
 
+                    <!-- Empty Cart Message (shown if cart is empty) -->
                     <div id="empty-cart" class="empty-cart d-none">
                         <h3>Your cart is currently empty</h3>
                         <p>Looks like you haven't added anything to your cart yet.</p>
                         <button class="btn btn-primary shopping">Continue Shopping</button>
                     </div>
                 </aside>
+                <!-- Checkout and Address Section -->
                 <aside class="col-lg-3">
+                    <!-- Address Card -->
                     <div class="card mb-4">
                         <div class="card-body">
+                            <!-- Button to change delivery address (opens modal) -->
                             <button data-toggle="modal" data-target="#address-modal" type="button"
-                                class="btn btn-sm btn-outline-primary float-right">Change <i
-                                    class="fas fa-pencil-alt"></i></button>
+                                class="btn btn-sm btn-outline-primary float-right">
+                                Change <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <!-- Address Information -->
                             <div class="form-group">
                                 <p class="ml-2"><strong>Deliver To</strong></p>
                             </div>
@@ -110,9 +132,11 @@
                         </div>
                     </div>
 
+                    <!-- Checkout Summary Card -->
                     <div class="card">
                         <div class="card-body">
                             <div id="amount-info">
+                                <!-- Coupon Code Input -->
                                 <div class="form-group">
                                     <div class="input-group">
                                         <input id="coupon_code" type="text" class="form-control" name="code"
@@ -123,7 +147,9 @@
                                         </span>
                                     </div>
                                 </div>
+                                <!-- Checkout Form -->
                                 <form id="checkout-form" method="POST" action="/checkout">
+                                    <!-- Price Information -->
                                     <dl class="dlist-align">
                                         <dt>Total price:</dt>
                                         <dd class="text-right" id="sub-total">$0.00</dd>
@@ -141,14 +167,16 @@
                                         <dd class="text-right text-dark"><strong id="total">$0.00</strong></dd>
                                     </dl>
                                     <hr>
+                                    <!-- Hidden Inputs for Checkout -->
                                     <input id="checkout-items" hidden name="items">
                                     <input id="checkout-coupon" hidden name="coupon">
+                                    <!-- Minimum Order Warning (shown if below minimum amount) -->
                                     <p class="text-danger" id="min-amount-warning">
                                         Checkout unavailable.<br>Minimum order amount is $20.00
                                     </p>
+                                    <!-- Checkout and Continue Shopping Buttons -->
                                     <button type="submit" id="checkout-button"
-                                        class="btn btn-primary btn-block">Checkout
-                                    </button>
+                                        class="btn btn-primary btn-block">Checkout</button>
                                     <button class="btn btn-light btn-block shopping">Continue Shopping</button>
                                 </form>
                             </div>
@@ -280,12 +308,9 @@
                 <div class="footer__content">
                     <h3 class="footer__title">Services</h3>
                     <ul>
-                        <li><a href="#service" class="footer__text">Delivery</a></li>
-                        <li><a href="#service" class="footer__text">Pricing</a></li>
-                        <li><a href="#service" class="footer__text">Quality Product</a></li>
-                        <!-- <li>
-                    <a href="#service" class="footer__text">Reserve your spot</a>
-                </li> -->
+                        <li><a href="#" class="footer__text">Delivery</a></li>
+                        <li><a href="#" class="footer__text">Pricing</a></li>
+                        <li><a href="#" class="footer__text">Quality Product</a></li>
                     </ul>
                 </div>
                 <div class="footer__content">
@@ -296,7 +321,7 @@
                             <a href="html/about.html" class="footer__text">About us</a>
                         </li>
                         <li>
-                            <a href="html/contact-us.html" class="footer__text">Contact us</a>
+                            <a href="#" class="footer__text">Contact us</a>
                         </li>
                     </ul>
                 </div>

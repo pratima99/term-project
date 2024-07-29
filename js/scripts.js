@@ -1,14 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Fade out the loading overlay when the window has fully loaded
     $(window).on('load', function () {
         $('#loading-overlay').fadeOut();
     });
-    // Initialize the main slider
+
+    // Initialize the main slider with autoplay, dots, and arrows
     $('.slider').slick({
         autoplay: true,
         dots: true,
         arrows: true,
     });
 
+    // Array of product objects
     const products = [
         {
             id: 1,
@@ -94,9 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
             quantity: 11,
             sound: '../audio/saxophone.mp3'
         },
-    ]
+    ];
 
-    // Generate product slider
+    // Generate product slider elements and append them to the product slider container
     const productSlider = document.querySelector('.product-slider');
     if (productSlider) {
         products.forEach(product => {
@@ -112,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
             productSlider.appendChild(productDiv);
         });
 
-        // Initialize the product slider
+        // Initialize the product slider with responsive settings
         $('.product-slider').slick({
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -121,21 +124,21 @@ document.addEventListener("DOMContentLoaded", function () {
             arrows: true,
             responsive: [
                 {
-                    breakpoint: 1024, // tablet landscape
+                    breakpoint: 1024, // Tablet landscape
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,
                     }
                 },
                 {
-                    breakpoint: 768, // tablet portrait
+                    breakpoint: 768, // Tablet portrait
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
                     }
                 },
                 {
-                    breakpoint: 480, // mobile
+                    breakpoint: 480, // Mobile
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -145,22 +148,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // View product details
+    // Function to view product details and store the selected product in local storage
     window.viewProduct = function (id) {
         const product = products.find(p => p.id === id);
         localStorage.setItem("selectedProduct", JSON.stringify(product));
         window.location.href = "html/product-details.html";
     };
 
+    // Display the cart count if it is greater than 0, otherwise hide the cart count element
     const cartCount = localStorage.getItem('cartCount');
-
     if (cartCount && cartCount > 0) {
         $('#cart-count').text(cartCount).show();
     } else {
         $('#cart-count').hide();
     }
 
-    // Register form validation
+    // Register form validation and submission handling
     if (document.getElementById("registerForm")) {
         document.getElementById("registerForm").addEventListener("submit", function (event) {
             event.preventDefault();
@@ -177,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Login form validation
+    // Login form validation and submission handling
     if (document.getElementById("loginForm")) {
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             event.preventDefault();
@@ -188,13 +191,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("loggedInUser", JSON.stringify(user));
                 window.location.href = "html/products.html";
             } else {
-                // document.getElementById("message").innerText = "Invalid email or password.";
+                // Show error message using SweetAlert
                 swal('Error', "Invalid email or password.", 'error');
             }
         });
     }
 
-    // Check for logged-in user and update the login button
+    // Check for logged-in user and update the login button, welcome message, and cart icon
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     const loginContainer = document.getElementById("loginContainer");
     const loginButton = document.getElementById("loginButton");
@@ -213,15 +216,18 @@ document.addEventListener("DOMContentLoaded", function () {
             cartIcon.style.display = "none";
         }
     }
+
     // Logout functionality
     if (document.getElementById("logoutButton")) {
         if (document.getElementById("logoutButton").style.display !== 'none') {
             document.getElementById("logoutButton").addEventListener("click", function () {
+                // Remove items from local storage
                 localStorage.removeItem("loggedInUser");
                 localStorage.removeItem("selectedProduct");
                 localStorage.removeItem("selectedProductQuantity");
                 localStorage.removeItem("cartProducts");
                 localStorage.removeItem("cartCount");
+
                 // Get the current pathname
                 var pathname = window.location.pathname;
 
@@ -235,17 +241,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+
+    // Function to show or hide the navigation menu
     const showMenu = (toggleId, navId) => {
         const toggle = document.getElementById(toggleId),
-            nav = document.getElementById(navId)
+            nav = document.getElementById(navId);
 
         // Validate that variables exist
         if (toggle && nav) {
             toggle.addEventListener('click', () => {
-                // We add the show-menu class to the div tag with the nav__menu class
-                nav.classList.toggle('show-menu')
-            })
+                // Add the show-menu class to the div tag with the nav__menu class
+                nav.classList.toggle('show-menu');
+            });
         }
-    }
-    showMenu('nav-toggle', 'nav-menu')
+    };
+
+    // Show the navigation menu when the toggle button is clicked
+    showMenu('nav-toggle', 'nav-menu');
 });

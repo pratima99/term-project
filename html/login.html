@@ -25,6 +25,7 @@
         <nav class="nav bd-container">
             <!-- ====== Logo of the website =======-->
             <a href="../index.html" class="nav__logo">
+                <!-- Website logo image -->
                 <img id="logo-img" src="https://live.staticflickr.com/65535/53889787330_9be346b063_n.jpg" alt="logo">
             </a>
             <!-- Nav Items -->
@@ -40,7 +41,9 @@
                         <a href="./products.html" class="nav__link">Products</a>
                     </li>
                     <li class="nav__item" style="display:none;" id="cart-icon">
-                        <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
+                        <!-- Cart icon, hidden by default -->
+                        <a href="./cart.html" class="nav__link">
+                            <i class="fa-solid fa-cart-shopping"></i>
                             <span id="cart-count" class="badge badge-pill badge-danger position-absolute"
                                 style="display: none;">0</span>
                         </a>
@@ -53,40 +56,60 @@
             </div>
 
             <div class="login-btn desktop-only" id="loginContainer">
+                <!-- Login button for desktop view -->
                 <a href="./login.html" class="button" id="loginButton">Login</a>
+                <!-- Welcome message, hidden by default -->
                 <span id="welcomeMessage" style="display: none;"></span>
             </div>
 
+            <!-- Logout button, hidden by default -->
             <button class="button" id="logoutButton" style="display: none">Logout</button>
 
             <!-- Toggle Button for mobile view -->
             <div class="nav__toggle" id="nav-toggle">
+                <!-- Hamburger menu icon for mobile navigation -->
                 <span>&#9776;</span>
             </div>
         </nav>
     </header>
-    <div class="loading-overlay" id="loading-overlay">
-        <div class="spinner-border text-primary" role="status">
-        </div>
-    </div>
-    <div class="bd-container main-content">
-        <div class="main-form-section">
-            <div class="form-column">
-                <div class="form-header">
-                    <h1>Login</h1> <span>Don't have an account ? <a href="./register.html">Register</a></span>
-                </div>
-                <form id="loginForm">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <br>
-                    <button type="submit" class="button">Login</button>
-                </form>
-                <div id="message"></div>
+
+    <main>
+        <!-- Loading overlay, displayed during page loading -->
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="spinner-border text-primary" role="status">
+                <!-- Spinner animation indicating loading state -->
             </div>
         </div>
-    </div>
+
+        <div class="bd-container main-content">
+            <div class="main-form-section">
+                <div class="form-column">
+                    <div class="form-header">
+                        <!-- Login form header -->
+                        <h1>Login</h1>
+                        <span>Don't have an account? <a href="./register.html">Register</a></span>
+                    </div>
+                    <!-- Login form -->
+                    <form id="loginForm">
+                        <label for="email">Email:</label>
+                        <!-- Email input field -->
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="password">Password:</label>
+                        <!-- Password input field -->
+                        <input type="password" id="password" name="password" required>
+                        <br>
+                        <!-- Submit button for the login form -->
+                        <button type="submit" class="button">Login</button>
+                    </form>
+                    <!-- Message display area (e.g., for errors or notifications) -->
+                    <div id="message"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
     <!--========== FOOTER ==========-->
     <footer class="footer">
         <div class="section footer__container">
@@ -208,12 +231,9 @@
                 <div class="footer__content">
                     <h3 class="footer__title">Services</h3>
                     <ul>
-                        <li><a href="#service" class="footer__text">Delivery</a></li>
-                        <li><a href="#service" class="footer__text">Pricing</a></li>
-                        <li><a href="#service" class="footer__text">Quality Product</a></li>
-                        <!-- <li>
-                        <a href="#service" class="footer__text">Reserve your spot</a>
-                    </li> -->
+                        <li><a href="#" class="footer__text">Delivery</a></li>
+                        <li><a href="#" class="footer__text">Pricing</a></li>
+                        <li><a href="#" class="footer__text">Quality Product</a></li>
                     </ul>
                 </div>
                 <div class="footer__content">
@@ -224,7 +244,7 @@
                             <a href="html/about.html" class="footer__text">About us</a>
                         </li>
                         <li>
-                            <a href="html/contact-us.html" class="footer__text">Contact us</a>
+                            <a href="#" class="footer__text">Contact us</a>
                         </li>
                     </ul>
                 </div>
@@ -278,6 +298,7 @@
     <script src="../js/scripts.js"></script>
     <script>
         $(document).ready(function () {
+            // Define a list of users with their details (name, email, password)
             const users = [
                 { name: 'Pratima Neupane', email: 'pratima@email.com', password: 'pratima123' },
                 { name: 'Samir Ranabhat', email: 'samir@email.com', password: 'samir123' },
@@ -286,23 +307,32 @@
                 { name: 'Pratina Gopali', email: 'pratina@email.com', password: 'pratina123' }
             ];
 
+            // Attach a submit event handler to the login form
             $('#loginForm').submit(function (event) {
+                // Prevent the default form submission behavior
                 event.preventDefault();
 
+                // Retrieve the email and password input values from the form
                 const email = $('#email').val();
                 const password = $('#password').val();
 
+                // Find a user that matches the input email and password
                 const user = users.find(u => u.email === email && u.password === password);
+
                 if (user) {
+                    // If user is found, store the user information in localStorage
                     localStorage.setItem('loggedInUser', JSON.stringify(user));
+                    // Redirect to the homepage after successful login
                     window.location.href = '../index.html';
                 } else {
+                    // If no user is found, show an error message using SweetAlert
                     swal('Error', "Invalid email or password.", 'error');
-                    // $('#message').text('Invalid email or password.');
+
                 }
             });
         });
     </script>
+
 </body>
 
 </html>

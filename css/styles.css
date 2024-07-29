@@ -10,6 +10,7 @@ html {
     /* for smooth scroll in the website */
 }
 
+/* Basic styling for the body element */
 body {
     margin: 3rem 0 0 0;
     font-family: Arial, sans-serif;
@@ -45,10 +46,12 @@ ul {
     list-style: none;
 }
 
+/* Remove underline from all anchor tags */
 a {
     text-decoration: none;
 }
 
+/* Make images responsive */
 img {
     max-width: 100%;
     height: auto;
@@ -67,41 +70,49 @@ img {
     padding-top: 3rem;
 }
 
+/* Margin for home button */
 .home_button {
     margin-bottom: 15%;
 }
 
+/* Home button hover effect */
 .home_button:hover {
     color: #ffffff !important;
 }
 
+/* Home title styling */
 .home__title {
     margin-top: 3%;
     font-size: 2rem;
     color: #fff;
 }
 
+/* Home subtitle styling */
 .home__subtitle {
     font-size: 1rem;
     color: #fff;
     padding-bottom: 1rem;
 }
 
+/* Section styling with padding */
 .section {
     padding: 3.5rem 0 2rem;
 }
 
+/* Center align section titles and subtitles */
 .section-title,
 .section-subtitle {
     text-align: center;
 }
 
+/* Section title styling */
 .section-title {
     font-size: 1.5rem;
     color: #4f4e4e;
     margin-bottom: 1.5rem;
 }
 
+/* Section subtitle styling */
 .section-subtitle {
     display: block;
     color: #cf6308;
@@ -110,21 +121,19 @@ img {
 }
 
 /*========== LAYOUT ==========*/
-.container {
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
+/* Container for central alignment */
 .bd-container {
     padding: 1rem;
 }
 
+/* Grid layout for elements */
 .bd-grid {
     display: grid;
     gap: 1.5rem;
 }
 
+/* Header styling */
 .l-header {
     width: 100%;
     position: fixed;
@@ -135,6 +144,7 @@ img {
     box-shadow: 0 1px 5px #eee;
 }
 
+/* Page title styling */
 .page-title {
     font-size: 1.5em;
     font-weight: bold;
@@ -151,6 +161,7 @@ img {
     flex-wrap: nowrap;
 }
 
+/* Logo image styling */
 #logo-img {
     height: 50%;
     width: 50%;
@@ -160,6 +171,7 @@ img {
     margin-bottom: 1rem;
 }
 
+/* Link, logo, and toggle styling */
 .nav__link,
 .nav__logo,
 .nav__toggle {
@@ -171,6 +183,7 @@ img {
     color: #cf6308;
 }
 
+/* Navigation toggle button styling */
 .nav__toggle {
     font-size: 1.3rem;
     cursor: pointer;
@@ -181,7 +194,7 @@ img {
     /* Hide by default on mobile */
 }
 
-/*for loading*/
+/* Loading overlay styling */
 .loading-overlay {
     position: fixed;
     width: 100%;
@@ -214,11 +227,12 @@ img {
     /* Smooth transition */
 }
 
-/* Hide login button on larger screens */
+/* Hide button on larger screens */
 .mobile-only {
     display: none;
 }
 
+/* Show only on larger screens */
 .desktop-only {
     display: block;
 }
@@ -229,6 +243,7 @@ img {
     border-bottom: 2.5px solid #cf6308;
 }
 
+/* About section image styling */
 .about-img-section {
     display: flex;
     justify-content: center;
@@ -236,6 +251,7 @@ img {
     order: 1;
 }
 
+/* About section image size */
 .about__img {
     width: 280px;
 }
@@ -248,17 +264,19 @@ img {
     font-size: 0.9rem;
 }
 
+/* Slider section margin */
 .slider-section {
     margin-bottom: 20px;
 }
 
-
+/* Slick slider list styling */
 .slick-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
 }
 
+/* Slick slider image styling */
 .slick-slide img {
     display: block;
     width: 100%;
@@ -266,6 +284,7 @@ img {
     object-fit: contain;
 }
 
+/* Section styling for about and products */
 .about-section,
 .products-section {
     margin: 2rem 0;
@@ -273,17 +292,20 @@ img {
     background-color: #fff;
 }
 
+/* Heading styling for product and about sections */
 .products-section h2,
 .about-section h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Product slider styling */
 .product-slider {
     display: flex;
     flex-wrap: nowrap;
 }
 
+/* Home product card styling */
 .home-product {
     background: white;
     border: 1px solid #ccc;
@@ -293,21 +315,22 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Image styling within home product card */
 .home-product img {
     width: 100%;
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
 }
 
+/* Home product heading styling */
 .home-product h3 {
     margin: 0 0 10px;
 }
 
+/* Home product paragraph styling */
 .home-product p {
     margin: 0 0 10px;
 }
-
-
 
 /* =====Footer===== */
 footer {
@@ -315,10 +338,12 @@ footer {
     overflow-x: hidden;
 }
 
+/* Center align footer content */
 .footer__wrapper {
     text-align: center;
 }
 
+/* Footer description styling */
 .footer__description {
     display: block;
     font-size: 0.813rem;
@@ -326,30 +351,32 @@ footer {
     margin: 0.25rem 0 1.5rem;
 }
 
-/* css for social icons */
+/* Styling for social media icons */
 .footer__social {
     font-size: 1.5rem;
     color: #fff;
     margin-right: 1rem;
 }
 
+/* Footer title styling */
 .footer__title {
     font-size: 1.25rem;
     color: #fff;
     margin-bottom: 1rem;
 }
 
+/* Footer text styling */
 .footer__text {
     display: inline-block;
     color: #fff;
     margin-bottom: 0.5rem;
 }
 
-
 .footer__text:hover {
-    color: #cf6308;
+    color: #dd9152;
 }
 
+/* Address link styling */
 .address_link {
     color: #fff;
 }
@@ -358,6 +385,7 @@ footer {
     color: #069c54;
 }
 
+/* Footer copyright styling */
 .footer__copy {
     text-align: center;
     font-size: 0.813rem;
@@ -407,18 +435,13 @@ footer {
     mix-blend-mode: multiply;
 }
 
+/* Background image and gradient for the page header */
 #page-header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://live.staticflickr.com/65535/53889787470_3715eb5cb9_n.jpg');
 
 }
 
-.page-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 1em 0;
-    color: #fff;
-}
-
+/* Contact container grid layout */
 .contact__container {
     grid-template-columns: 1.75fr 1fr;
     text-align: center;
@@ -428,33 +451,33 @@ footer {
     margin-top: 20%;
 }
 
-/* About  */
+/* Flexbox layout for about section */
 .about-row {
     display: flex;
     flex-direction: column;
     margin: 3em 0;
 }
 
+/* Flexbox column layout for about section */
 .about-row .about-column-left,
 .about-row .about-column-right {
     width: 100%;
 }
 
+/* Styles for right column in about section */
 .about-row .about-column-right {
     padding-top: 3%;
-}
-
-.about-row .about-column-right {
     display: flex;
     justify-content: center;
 }
 
+/* About image styling */
 .about-image-1 {
     width: 80%;
     border-radius: 1em;
 }
 
-/*cart label*/
+/* Cart label positioning and styling */
 .position-absolute {
     position: absolute;
     top: -14px;
@@ -467,16 +490,70 @@ footer {
     line-height: 1;
 }
 
-.nav__link .fa-cart-shopping {
-    font-size: 1.5rem;
-}
-
 .product-button {
     padding: 0.5rem 0.75rem;
 }
 
+/* Center alignment for explore button */
 .home-explore-btn {
     text-align: center;
+}
+
+/* Set the height and centering for the home container */
+.home__container {
+    height: calc(100vh - 3rem);
+    align-content: center;
+}
+
+/* Center content within home container */
+.home__data {
+    text-align: initial;
+    margin-left: 10%;
+}
+
+/* Increase font size for home title */
+.home__title {
+    font-size: 4rem;
+}
+
+.home__subtitle {
+    font-size: 2.25rem;
+}
+
+.home__img {
+    width: 90%;
+    margin-bottom: 0;
+}
+
+/* Add space between columns in the about container */
+.about__container {
+    column-gap: 7rem;
+}
+
+/* Change order of about image section */
+.about-img-section {
+    order: -1;
+}
+
+/* Configure grid layout for contact container with two columns */
+.contact__container {
+    grid-template-columns: 1.75fr 1fr;
+    text-align: center;
+}
+
+/* Add top margin for contact button */
+.contact__button {
+    margin-top: 20%;
+}
+
+.about-row {
+    flex-direction: row;
+}
+
+/* Set width for about columns */
+.about-row .about-column-left,
+.about-row .about-column-right {
+    width: 50%;
 }
 
 @media screen and (max-width: 768px) {
@@ -709,7 +786,7 @@ footer {
     }
 }
 
-/*=========responsive design for tab=========*/
+/*========= Responsive design for Tablets =========*/
 @media screen and (min-width: 769px) and (max-width: 1279px) {
 
     .nav__toggle {
@@ -722,71 +799,14 @@ footer {
         /* Show menu items inline on larger screens */
     }
 
+    /* Configure grid layout for home and about containers with two columns */
     .home__container,
     .about__container {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .home__container {
-        height: 100vh;
-        justify-items: center;
-    }
-
-    .home__container {
-        height: calc(100vh - 3rem);
-        align-content: center;
-    }
-
-    .home__container {
-        height: 640px;
-    }
-
-    .home__data {
-        text-align: initial;
-        margin-left: 10%;
-    }
-
-    .home__title {
-        font-size: 4rem;
-    }
-
-    .home__subtitle {
-        font-size: 2.25rem;
-    }
-
-    .home__img {
-        width: 90%;
-        margin-bottom: 0;
-    }
-
-    .about__container {
-        column-gap: 7rem;
-    }
-
-    .about-img-section {
-        order: -1;
-    }
-
-    .contact__container {
-        grid-template-columns: 1.75fr 1fr;
-        text-align: center;
-    }
-
-    .contact__button {
-        margin-top: 20%;
-    }
-
-    .about-row {
-        flex-direction: row;
-    }
-
-    .about-row .about-column-left,
-    .about-row .about-column-right {
-        width: 50%;
-    }
 }
 
-/*=========responsive design for desktop=========*/
+/*========= Responsive design for desktop =========*/
 @media screen and (min-width: 1280px) {
     .nav__toggle {
         display: none;
@@ -802,17 +822,16 @@ footer {
         padding-top: 0;
     }
 
+    /* Configure grid layout for home and about containers with two columns */
     .home__container,
     .about__container {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Set the height and centering for the home container */
     .home__container {
         height: 100vh;
         justify-items: center;
-    }
-
-    .home__container {
         align-content: center;
     }
 
@@ -820,16 +839,19 @@ footer {
         text-align: initial;
     }
 
+    /* Set image width and remove bottom margin */
     .home__img {
         width: 90%;
         margin-bottom: 0;
     }
 
+    /* Increase font size and adjust line height for home title */
     .home__title {
         font-size: 4rem;
         line-height: normal;
     }
 
+    /* Increase font size for home subtitle */
     .home__subtitle {
         font-size: 2.25rem;
     }
@@ -838,18 +860,22 @@ footer {
         border: 1.6px solid #cf6308;
     }
 
+    /* Add space between columns in the about container */
     .about__container {
         column-gap: 7rem;
     }
 
+    /* Change order of about image section */
     .about-img-section {
         order: -1;
     }
 
+    /* Adjust layout direction for about rows */
     .about-row {
         flex-direction: row;
     }
 
+    /* Set width for about columns */
     .about-row .about-column-left,
     .about-row .about-column-right {
         width: 50%;

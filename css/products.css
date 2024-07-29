@@ -1,9 +1,11 @@
+/* Styles for the search bar container */
 .search-bar {
     display: flex;
     justify-content: center;
     margin-bottom: 3rem;
 }
 
+/* Styles for the input field within the search bar */
 .search-bar input {
     padding: 10px;
     width: 100%;
@@ -12,22 +14,26 @@
     border-radius: 4px;
 }
 
+/* Styles for the product category section */
 .product-category {
     margin-bottom: 3rem;
 }
 
+/* Styles for the category title */
 .category-title {
     font-size: 1.5rem;
     font-weight: bold;
     padding-bottom: 1.5rem;
 }
 
+/* Styles for the product list container */
 .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
 }
 
+/* Styles for each product item */
 .product {
     background: #fff;
     padding: 1rem;
@@ -36,17 +42,20 @@
     text-align: center;
 }
 
+/* Styles for product images */
 .product img {
     height: 200px;
     margin-bottom: 10px;
 }
 
+/* Styles for the product title */
 .product-title {
     font-size: 1.3rem;
     font-weight: bold;
     padding-bottom: 0.5rem;
 }
 
+/* Styles for buttons inside product items */
 .product button {
     margin-top: 1rem;
     cursor: pointer;

@@ -26,48 +26,62 @@
         <nav class="nav bd-container">
             <!-- ====== Logo of the website =======-->
             <a href="../index.html" class="nav__logo">
+                <!-- Logo image -->
                 <img id="logo-img" src="https://live.staticflickr.com/65535/53889787330_9be346b063_n.jpg" alt="logo">
             </a>
-            <!-- Nav Items -->
+            <!-- Navigation items container -->
             <div class="nav__menu" id="nav-menu">
+                <!-- List of navigation links -->
                 <ul class="nav__list">
+                    <!-- Home link -->
                     <li class="nav__item">
                         <a href="../index.html" class="nav__link">Home</a>
                     </li>
+                    <!-- About link -->
                     <li class="nav__item">
                         <a href="./about.html" class="nav__link">About</a>
                     </li>
+                    <!-- Products link (active) -->
                     <li class="nav__item">
                         <a href="./products.html" class="nav__link active-link">Products</a>
                     </li>
+                    <!-- Cart icon link (hidden by default) -->
                     <li class="nav__item" style="display:none;" id="cart-icon">
                         <a href="./cart.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i>
+                            <!-- Cart item count badge (hidden by default) -->
                             <span id="cart-count" class="badge badge-pill badge-danger position-absolute"
                                 style="display: none;">0</span>
                         </a>
                     </li>
-                    <!-- Login Button for mobile view -->
+                    <!-- Login button for mobile view -->
                     <li class="nav__item mobile-only">
                         <a href="./login.html" class="button nav__link">Login</a>
                     </li>
                 </ul>
             </div>
 
+            <!-- Login button container for desktop view -->
             <div class="login-btn desktop-only" id="loginContainer">
+                <!-- Login button link -->
                 <a href="./login.html" class="button" id="loginButton">Login</a>
+                <!-- Welcome message (hidden by default) -->
                 <span id="welcomeMessage" style="display: none;"></span>
             </div>
 
+            <!-- Logout button (hidden by default) -->
             <button class="button" id="logoutButton" style="display: none">Logout</button>
 
-            <!-- Toggle Button for mobile view -->
+            <!-- Toggle button for mobile view -->
             <div class="nav__toggle" id="nav-toggle">
+                <!-- Hamburger icon for mobile menu toggle -->
                 <span>&#9776;</span>
             </div>
         </nav>
     </header>
 
+    <!-- Loading overlay (hidden by default) -->
     <div class="loading-overlay" id="loading-overlay">
+        <!-- Spinner for loading overlay -->
         <div class="spinner-border text-primary" role="status">
         </div>
     </div>
@@ -75,17 +89,21 @@
     <main>
         <!-- Page Header -->
         <div id="page-header">
+            <!-- Title for the products page -->
             <div class="page-title">Products</div>
         </div>
         <div class="bd-container main-content">
+            <!-- Search bar for products -->
             <div class="search-bar">
                 <input type="text" id="searchBar" placeholder="Search products...">
             </div>
+            <!-- Container for product categories and products -->
             <div id="productCategories">
                 <!-- Product categories and products will be dynamically added here -->
             </div>
         </div>
     </main>
+
     <!--========== FOOTER ==========-->
     <footer class="footer">
         <div class="section footer__container">
@@ -207,12 +225,9 @@
                 <div class="footer__content">
                     <h3 class="footer__title">Services</h3>
                     <ul>
-                        <li><a href="#service" class="footer__text">Delivery</a></li>
-                        <li><a href="#service" class="footer__text">Pricing</a></li>
-                        <li><a href="#service" class="footer__text">Quality Product</a></li>
-                        <!-- <li>
-                    <a href="#service" class="footer__text">Reserve your spot</a>
-                </li> -->
+                        <li><a href="#" class="footer__text">Delivery</a></li>
+                        <li><a href="#" class="footer__text">Pricing</a></li>
+                        <li><a href="#" class="footer__text">Quality Product</a></li>
                     </ul>
                 </div>
                 <div class="footer__content">
@@ -223,7 +238,7 @@
                             <a href="html/about.html" class="footer__text">About us</a>
                         </li>
                         <li>
-                            <a href="html/contact-us.html" class="footer__text">Contact us</a>
+                            <a href="#" class="footer__text">Contact us</a>
                         </li>
                     </ul>
                 </div>
@@ -277,7 +292,7 @@
     <script src="../js/scripts.js"></script>
     <script>
         $(document).ready(function () {
-
+            // Array of product objects
             const products = [
                 {
                     id: 1,
@@ -393,26 +408,31 @@
                 },
             ];
 
+            // Load cart products from localStorage and update quantities in the products array
             if (localStorage.getItem('cartProducts') !== null) {
                 let cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
 
                 cartProducts.forEach(cartProduct => {
                     products.forEach(product => {
                         if (cartProduct.id === product.id) {
-                            product.quantity = cartProduct.quantity;
+                            product.quantity = cartProduct.quantity; // Update quantity for products in the cart
                         }
                     });
                 });
             }
 
+            // Extract unique categories from the products array
             const categories = [...new Set(products.map(p => p.category))];
 
+            // Function to display products filtered by category and search input
             function displayProducts(filter = '') {
-                $('#productCategories').empty();
+                $('#productCategories').empty(); // Clear the existing product categories
                 categories.forEach(category => {
+                    // Filter products by category and search input
                     const filteredProducts = products.filter(p => p.category === category && p.name.toLowerCase().includes(filter.toLowerCase()));
                     if (filteredProducts.length > 0) {
                         const categoryId = category.split(' ').join('-').toLowerCase();
+                        // Append category and product list to the productCategories container
                         $('#productCategories').append(`
                             <div class="product-category">
                                 <div class="category-title">${category}</div>
@@ -422,6 +442,7 @@
                             </div>
                             `);
 
+                        // Append each filtered product to the product list
                         filteredProducts.forEach(product => {
                             $(`#${categoryId}`).append(`
                                 <div class="product">
@@ -437,18 +458,21 @@
                 });
             }
 
+            // Event handler for search bar input to filter products
             $('#searchBar').on('input', function () {
                 const filter = $(this).val();
-                displayProducts(filter);
+                displayProducts(filter); // Update product display based on search input
             });
 
+            // Initial call to display products
             displayProducts();
 
+            // Function to handle viewing product details
             window.viewProduct = function (id) {
                 const product = products.find(p => p.id === id);
                 if (product) {
-                    localStorage.setItem('selectedProduct', JSON.stringify(product));
-                    window.location.href = 'product-details.html';
+                    localStorage.setItem('selectedProduct', JSON.stringify(product)); // Store selected product in localStorage
+                    window.location.href = 'product-details.html'; // Redirect to product details page
                 }
             };
         });
