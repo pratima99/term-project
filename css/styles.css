@@ -1,5 +1,3 @@
-
-
 /*========== BASE STYLES ==========*/
 *,
 ::before,
@@ -16,7 +14,6 @@ body {
     margin: 3rem 0 0 0;
     font-family: Arial, sans-serif;
     font-size: 0.938rem;
-    background-color: #fbfefd;
     color: #312f2f;
     line-height: 1.6;
 }
@@ -57,7 +54,39 @@ img {
     height: auto;
 }
 
-/*========== CLASS CSS ==========*/
+#home {
+    background-image: url("../img/bg-2.jpg");
+    /* Center the image */
+    background-position: center;
+    /* Do not repeat the image */
+    background-repeat: no-repeat;
+    /* image cover the section */
+    background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    padding-top: 3rem;
+}
+
+.home_button {
+    margin-bottom: 15%;
+}
+
+.home_button:hover {
+    color: #ffffff !important;
+}
+
+.home__title {
+    margin-top: 3%;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.home__subtitle {
+    font-size: 1rem;
+    color: #fff;
+    padding-bottom: 1rem;
+}
+
 .section {
     padding: 3.5rem 0 2rem;
 }
@@ -88,7 +117,7 @@ img {
 }
 
 .bd-container {
-    padding: 1rem 1.5rem;
+    padding: 1rem;
 }
 
 .bd-grid {
@@ -119,11 +148,12 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 #logo-img {
-    height: 60%;
-    width: 60%;
+    height: 50%;
+    width: 50%;
 }
 
 .nav__item {
@@ -197,6 +227,17 @@ img {
 .active-link {
     color: #cf6308;
     border-bottom: 2.5px solid #cf6308;
+}
+
+.about-img-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+}
+
+.about__img {
+    width: 280px;
 }
 
 /* Price styles */
@@ -341,38 +382,6 @@ footer {
     color: #cf6308 !important;
 }
 
-#home {
-    background-image: url("../img/bg-2.jpg");
-    /* Center the image */
-    background-position: center;
-    /* Do not repeat the image */
-    background-repeat: no-repeat;
-    /* image cover the section */
-    background-size: cover;
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    padding-top: 3rem;
-}
-
-.home_button {
-    margin-bottom: 15%;
-}
-
-.home_button:hover {
-    color: #ffffff !important;
-}
-
-.home__title {
-    margin-top: 3%;
-    font-size: 2rem;
-    color: #fff;
-}
-
-.home__subtitle {
-    font-size: 1rem;
-    color: #fff;
-}
-
 /* Styles for the page header */
 #page-header {
     background-size: cover;
@@ -409,10 +418,6 @@ footer {
     color: #fff;
 }
 
-.main-content {
-    padding: 2rem 0;
-}
-
 .contact__container {
     grid-template-columns: 1.75fr 1fr;
     text-align: center;
@@ -425,13 +430,13 @@ footer {
 /* About  */
 .about-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 3em 0;
 }
 
 .about-row .about-column-left,
 .about-row .about-column-right {
-    width: 50%;
+    width: 100%;
 }
 
 .about-row .about-column-right {
@@ -499,10 +504,10 @@ footer {
     }
 
     .desktop-only {
-        display: none;
+        display: none !important;
     }
 
-    .button {
+    .nav__item .button {
         padding: 0.3rem 0.5rem !important;
         font-size: 0.7rem;
     }
@@ -580,6 +585,15 @@ footer {
     .footer__copy {
         font-size: 0.875rem;
     }
+
+    .about-row {
+        flex-direction: row;
+    }
+
+    .about-row .about-column-left,
+    .about-row .about-column-right {
+        width: 50%;
+    }
 }
 
 /*=========responsive design for desktop=========*/
@@ -603,6 +617,11 @@ footer {
         margin-right: auto;
         padding: 0;
     }
+
+    .main-content {
+        padding: 2rem 0;
+    }
+
 
     .section-title {
         font-size: 2.25rem;
@@ -678,6 +697,15 @@ footer {
     .footer__copy {
         font-size: 0.875rem;
     }
+
+    .about-row {
+        flex-direction: row;
+    }
+
+    .about-row .about-column-left,
+    .about-row .about-column-right {
+        width: 50%;
+    }
 }
 
 /*=========responsive design for tab=========*/
@@ -734,8 +762,7 @@ footer {
         column-gap: 7rem;
     }
 
-    .about__img {
-        width: 300px;
+    .about-img-section {
         order: -1;
     }
 
@@ -746,6 +773,15 @@ footer {
 
     .contact__button {
         margin-top: 20%;
+    }
+
+    .about-row {
+        flex-direction: row;
+    }
+
+    .about-row .about-column-left,
+    .about-row .about-column-right {
+        width: 50%;
     }
 }
 
@@ -790,6 +826,7 @@ footer {
 
     .home__title {
         font-size: 4rem;
+        line-height: normal;
     }
 
     .home__subtitle {
@@ -804,8 +841,16 @@ footer {
         column-gap: 7rem;
     }
 
-    .about__img {
-        width: 300px;
+    .about-img-section {
         order: -1;
+    }
+
+    .about-row {
+        flex-direction: row;
+    }
+
+    .about-row .about-column-left,
+    .about-row .about-column-right {
+        width: 50%;
     }
 }

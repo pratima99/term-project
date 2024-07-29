@@ -3,10 +3,6 @@
     margin-top: 6%
 }
 
-.bg {
-    background-color: #f8f9fa;
-}
-
 .text-success {
     color: #28a745;
 }
@@ -29,8 +25,8 @@
 }
 
 .btn-primary {
-    background-color: #cf6308;
-    border-color: #cf6308;
+    background-color: #cf6308 !important;
+    border-color: #cf6308 !important;
 }
 
 .form-control {

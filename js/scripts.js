@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             if (name && email && password) {
-                localStorage.setItem("user", JSON.stringify({name, email, password}));
+                localStorage.setItem("user", JSON.stringify({ name, email, password }));
                 document.getElementById("message").innerText = "Registration successful!";
                 window.location.href = "login.html";
             } else {
