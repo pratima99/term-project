@@ -6,17 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         arrows: true,
     });
 
-    // Sample products data
-    // const products = [
-    //     {id: 1, name: "Guitar", category: "String Instruments", price: 500, quantity: 10, img: "img/guitar.jpg",image: '../img/guitar.jpg',
-    //         vendor: { name: 'Vendor 1', verified: true} },
-    //     {id: 2, name: "Violin", category: "String Instruments", price: 300, quantity: 5, img: "img/violin.jpg"},
-    //     {id: 3, name: "Flute", category: "Wind Instruments", price: 150, quantity: 20, img: "img/flute.jpg"},
-    //     {id: 4, name: "Harp", category: "String Instruments", price: 200, quantity: 8, img: "img/harp.png"},
-    //     {id: 5, name: "Bagpipes", category: "Wind Instruments", price: 1000, quantity: 3, img: "img/bagpipes.png"},
-    //     {id: 6, name: "Saxophone", category: "Wind Instruments", price: 600, quantity: 7, img: "img/saxophone.jpg"}
-    // ];
-
     const products = [
         {
             id: 1,
@@ -119,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             productDiv.innerHTML = `
                 <img src="${product.img}" alt="${product.name}">
                 <h3>${product.name}</h3>
-                <p>Price: $${product.price}</p>
+                <p>Price: ${product.price}</p>
                 <p>Quantity: ${product.quantity}</p>
                 <button onclick="viewProduct(${product.id})" class="button product-button">View Details</button>
             `;
@@ -220,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             if (name && email && password) {
-                localStorage.setItem("user", JSON.stringify({name, email, password}));
+                localStorage.setItem("user", JSON.stringify({ name, email, password }));
                 document.getElementById("message").innerText = "Registration successful!";
                 window.location.href = "login.html";
             } else {

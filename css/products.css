@@ -16,8 +16,10 @@
     margin-bottom: 3rem;
 }
 
-.product-category h2 {
-    margin-bottom: 10px;
+.category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
 }
 
 .product-list {
@@ -37,6 +39,12 @@
 .product img {
     height: 200px;
     margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
 }
 
 .product button {
