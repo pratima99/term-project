@@ -55,19 +55,6 @@
     outline: none;
 }
 
-/*cart label*/
-.position-absolute {
-    position: absolute;
-    top: -16px;
-    right: -8px;
-    background-color: red;
-    color: white;
-    padding: 3px 4px;
-    border-radius: 50%;
-    font-size: 0.85rem;
-    line-height: 1;
-}
-
 /* Style for cart icon in the navigation */
 .nav__link .fa-cart-shopping {
     font-size: 1.5rem;

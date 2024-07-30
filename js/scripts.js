@@ -205,7 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Check for logged-in user and update the login button, welcome message, and cart icon
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    const loginContainer = document.getElementById("loginContainer");
     const loginButton = document.getElementById("loginButton");
     const welcomeMessage = document.getElementById("welcomeMessage");
     const cartIcon = document.getElementById("cart-icon");
