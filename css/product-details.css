@@ -55,11 +55,6 @@
     outline: none;
 }
 
-/* Style for cart icon in the navigation */
-.nav__link .fa-cart-shopping {
-    font-size: 1.5rem;
-}
-
 /* Margin for breadcrumbs section */
 .breadcrumbs {
     margin-top: 2rem;
